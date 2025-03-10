@@ -55,7 +55,8 @@ def home():
 
 @app.route('/academy')
 def academy():
-    return render_template('academy.html')
+    nome_usuario = session.get('nome')  # Obtém o usuário da sessão
+    return render_template('academy.html', nome=nome_usuario)
 
 
 @app.route('/logout')
