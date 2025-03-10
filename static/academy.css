@@ -1,59 +1,116 @@
 /* Estilos Gerais */
 body {
-    font-family: 'Jost', serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-    background-color: #010004;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    overflow-x: hidden;
-    /* Impede seleção de texto */
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    background-image: url();
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-  }
-  
-  /* HEADER */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 99%;
-    gap: 20px;
-    margin: 20px;
-    overflow-x: hidden;
-  }
-  
-  header img {
-    width: 80px;
-    pointer-events: none;
-    -webkit-user-drag: none;
-    user-select: none;
-  }
-  
-  header .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-  }
-  
-  header .menu h4 {
-    background-color: var(--primary-color);
-    padding: 10px 15px;
-    border-radius: 5px;
-  }
-  
-  header .menu a {
-    text-decoration: none;
-    color: #fff;
-  }
+  font-family: 'Jost', serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  background-color: #010004;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: hidden;
+  /* Impede seleção de texto */
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-image: url();
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 99%;
+  gap: 20px;
+  margin: 20px;
+  overflow-x: hidden;
+}
+
+header img {
+  width: 80px;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+header .menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+header .menu h4 {
+  background-color: var(--primary-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+header .menu a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.progress-banner {
+  background-color: #090909;
+  padding: 0 20px;
+  margin: 0 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+h1 {
+  color: #fff;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress {
+  width: 0%;
+  height: 20px;
+  background-color: var(--primary-color);
+  text-align: center;
+  line-height: 20px;
+  color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 20px;
+  background-color: #090909;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px;
+}
+
+.video-section {
+  margin-bottom: 20px;
+}
+
+.video-section button {
+  padding: 10px 20px;
+  background-color: #76c7c0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.video-section button:hover {
+  background-color: #5aa8a2;
+}

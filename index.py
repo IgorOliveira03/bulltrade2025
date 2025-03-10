@@ -53,6 +53,11 @@ def home():
     return render_template('home.html', nome=nome_usuario)
 
 
+@app.route('/academy')
+def academy():
+    return render_template('academy.html')
+
+
 @app.route('/logout')
 def logout():
     session.clear()  # Limpa toda a sessão do usuário

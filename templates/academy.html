@@ -1,35 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../static/styles.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="../static/styles.css" />
+  </head>
+  <body>
     <header class="header">
-        <img src="../static/images/logo.png" alt="" />
-        <!-- <h1>BullTRADE</h1> -->
-  
-        <div class="menu">
-          <a href="{{ url_for('logout') }}">SAIR</a>
-          <h4>Bem-Vindo, {{ nome }}!</h4>
-        </div>
-      </header>
+      <img src="../static/images/logo.png" alt="" />
+      <!-- <h1>BullTRADE</h1> -->
 
+      <div class="menu">
+        <a href="{{ url_for('logout') }}">SAIR</a>
+        <h4>Bem-Vindo, {{ nome }}!</h4>
+      </div>
+    </header>
 
+    <div class="progress-banner">
+      <h1>Treinamento Gratuito - Academy</h1>
+      <p>Domine o mercado com nosso treinamento completo</p>
 
+      <div class="progress-bar">
+        <div class="progress" id="progress">0%</div>
+      </div>
+    </div>
 
+    <div class="container">
+      <div class="video-section">
+        <h2>Tutoriais do App</h2>
+        <p>
+          Comece por aqui! Aprenda a configurar e utilizar o app corretamente
+          para maximizar seus resultados.
+        </p>
+        <button onclick="updateProgress(20)">Assistir Vídeo 1</button>
+      </div>
+
+      <div class="video-section">
+        <button onclick="updateProgress(40)">Assistir Vídeo 2</button>
+      </div>
+
+      <div class="video-section">
+        <button onclick="updateProgress(60)">Assistir Vídeo 3</button>
+      </div>
+
+      <div class="video-section">
+        <button onclick="updateProgress(80)">Assistir Vídeo 4</button>
+      </div>
+
+      <div class="video-section">
+        <button onclick="updateProgress(100)">Assistir Vídeo 5</button>
+      </div>
+    </div>
 
     <footer>
-        <nav>
-            <a href="./home.html">Home</a>
-            <a href="./academy.html">Academy</a>
-            <a class="live" href="#">Lives</a>
-            <a href="#">News</a>
-            <a href="#">Histórico</a>
-        </nav>
+      <nav>
+        <a href="./home.html">Home</a>
+        <a href="./academy.html">Academy</a>
+        <a class="live" href="#">Lives</a>
+        <a href="#">News</a>
+        <a href="#">Histórico</a>
+      </nav>
     </footer>
-</body>
+
+    <script>
+      function updateProgress(percentage) {
+        const progressBar = document.getElementById('progress');
+        progressBar.style.width = percentage + '%';
+        progressBar.textContent = percentage + '%';
+      }
+    </script>
+  </body>
 </html>
