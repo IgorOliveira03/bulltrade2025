@@ -1,22 +1,4 @@
-/* Estilos Gerais */
-body {
-  font-family: 'Jost', serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
-  background-color: #010004;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  overflow-x: hidden;
-  /* Impede seleção de texto */
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
+
 
 .imagembanner {
   background-image: url(../static/images/blur1.png);
