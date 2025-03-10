@@ -99,26 +99,26 @@
        }
 
         // Função para carregar o estado salvo ao recarregar a página
-        // function loadState() {
-        //     // Verifica o progresso salvo
-        //     const savedProgress = localStorage.getItem('progress');
+        function loadState() {
+            // Verifica o progresso salvo
+            const savedProgress = localStorage.getItem('progress');
 
-        //     if (savedProgress) {
-        //         updateProgress(parseInt(savedProgress));
-        //     }
+            if (savedProgress) {
+                updateProgress(parseInt(savedProgress));
+            }
 
 
-        //     // Verifica quais vídeos foram concluídos
-        //     const videos = ['video1', 'video2', 'video3', 'video4', 'video5'];
-        //     videos.forEach(videoId => {
-        //         if (localStorage.getItem(videoId)) {
-        //             const button = document.getElementById(videoId);
-        //             button.textContent = "Concluído";
-        //             button.classList.add('completed');
-        //             button.disabled = true;
-        //         }
-        //     });
-        // }
+            // Verifica quais vídeos foram concluídos
+            const videos = ['video1', 'video2', 'video3', 'video4', 'video5'];
+            videos.forEach(videoId => {
+                if (localStorage.getItem(videoId)) {
+                    const button = document.getElementById(videoId);
+                    button.textContent = "Concluído";
+                    button.classList.add('completed');
+                    button.disabled = true;
+                }
+            });
+        }
 
         // Carrega o estado ao carregar a página
         window.onload = loadState;
