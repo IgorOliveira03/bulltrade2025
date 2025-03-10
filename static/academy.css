@@ -16,7 +16,8 @@ body {
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  background-image: url();
+  background-image: url(../static/images/blur1.png);
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
@@ -95,7 +96,7 @@ header .menu a {
   color: white;
 }
 
-.container {
+.containerAcademy {
   width: 85%;
   margin: 20px;
   background-color: #090909;
