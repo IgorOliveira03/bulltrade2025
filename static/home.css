@@ -16,10 +16,14 @@ body {
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+.imagembanner {
   background-image: url(../static/images/blur1.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+  width: 100%;
 }
 
 /* HEADER */
