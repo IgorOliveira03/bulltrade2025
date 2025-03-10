@@ -21,6 +21,7 @@
       <h1>Treinamento Gratuito - Academy</h1>
       <p>Domine o mercado com nosso treinamento completo</p>
 
+      <span>Progresso do Curso:</span>
       <div class="progress-bar">
         <div class="progress" id="progress">0%</div>
       </div>
@@ -31,41 +32,39 @@
         <p>Comece por aqui! Aprenda a configurar e utilizar o app corretamente para maximizar seus resultados.</p>
 
         <div class="progress-bar">
-            <div class="progress" id="progress">0%</div>
+            <div class="progress" id="progress2">0%</div>
         </div>
 
         <div class="video-section">
-            <h2>ALAVANÇAGEM DE PA...</h2>
-            <p><strong>ALAVANÇA BANCA DE SEGUNDOR COM UM RADIANTE!</strong></p>
-            <p>Tutorial do App - 12:25</p>
-            <button onclick="markAsCompleted(this, 20)">Marcar como concluído</button>
+            <h2>Como usar Confirmação</h2>
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <button onclick="markAsCompleted(this, 20)" id="video1">Marcar como concluído</button>
         </div>
 
         <div class="video-section">
             <h2>Como Usar Confirmação (Recomendado)</h2>
-            <p>Aprenda a estratégia de confirmação para entradas mais precisas.</p>
-            <button onclick="markAsCompleted(this, 40)">Marcar como concluído</button>
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <button onclick="markAsCompleted(this, 40)" id="video2">Marcar como concluído</button>
         </div>
 
         <div class="video-section">
             <h2>Estratégia Avançada</h2>
-            <p>Domine técnicas avançadas para melhorar seus resultados.</p>
-            <button onclick="markAsCompleted(this, 60)">Marcar como concluído</button>
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <button onclick="markAsCompleted(this, 60)" id="video3">Marcar como concluído</button>
         </div>
 
         <div class="video-section">
             <h2>Gestão de Risco</h2>
-            <p>Aprenda a gerenciar riscos de forma eficiente.</p>
-            <button onclick="markAsCompleted(this, 80)">Marcar como concluído</button>
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <button onclick="markAsCompleted(this, 80)" id="video4">Marcar como concluído</button>
         </div>
 
         <div class="video-section">
             <h2>Conclusão do Curso</h2>
-            <p>Finalize o curso e receba seu certificado.</p>
-            <button onclick="markAsCompleted(this, 100)">Marcar como concluído</button>
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <button onclick="markAsCompleted(this, 100)" id="video5">Marcar como concluído</button>
         </div>
     </div>
-
 
     <footer>
       <nav>
@@ -78,17 +77,60 @@
     </footer>
 
     <script>
-     function markAsCompleted(button, percentage) {
+        // Função para marcar um vídeo como concluído
+        function markAsCompleted(button, percentage) {
             if (!button.classList.contains('completed')) {
                 button.textContent = "Concluído";
                 button.classList.add('completed');
                 button.disabled = true;
 
-                const progressBar = document.getElementById('progress');
-                progressBar.style.width = percentage + '%';
-                progressBar.textContent = percentage + '%';
+                // Atualiza o progresso
+                updateProgress(percentage);
+
+                // Salva o estado no localStorage
+                localStorage.setItem(button.id, 'completed');
+                localStorage.setItem('progress', percentage);
+                localStorage.setItem('progress2', percentage);
             }
         }
+
+        // Função para atualizar a barra de progresso
+        function updateProgress(percentage) {
+            const progressBar = document.getElementById('progress');
+            const progressBar2 = document.getElementById('progress2');
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = percentage + '%';
+
+            progressBar2.textContent = percentage + '%';
+        }
+
+        // Função para carregar o estado salvo ao recarregar a página
+        function loadState() {
+            // Verifica o progresso salvo
+            const savedProgress = localStorage.getItem('progress');
+            const savedProgress2 = localStorage.getItem('progress2');
+            if (savedProgress) {
+                updateProgress(parseInt(savedProgress));
+            }
+
+            if (savedProgress2) {
+                updateProgress(parseInt(savedProgress));
+            }
+
+            // Verifica quais vídeos foram concluídos
+            const videos = ['video1', 'video2', 'video3', 'video4', 'video5'];
+            videos.forEach(videoId => {
+                if (localStorage.getItem(videoId)) {
+                    const button = document.getElementById(videoId);
+                    button.textContent = "Concluído";
+                    button.classList.add('completed');
+                    button.disabled = true;
+                }
+            });
+        }
+
+        // Carrega o estado ao carregar a página
+        window.onload = loadState;
     </script>
   </body>
 </html>
