@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="static/images/logo.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,500;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        body {
+            font-family: "Jost", serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            background-color: #00bf63;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow-y: hidden;
+            margin: 0;
+            /* Impede seleção de texto */
+            user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .login-box {
+            width: 80%;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .login-box img {
+            width: 300px;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+            color: #010004;
+            text-transform: uppercase;
+        }
+
+        .login-box .usuario,
+        .login-box .senha {
+            text-align: left;
+            color: #fff;
+        }
+
+        .login-box .usuario input,
+        .login-box .senha input {
+            margin-top: 5px;
+        }
+
+        .login-box .usuario label,
+        .login-box .senha label {
+            font-weight: 700;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            background-color: #00bf63;
+            border: 2px solid #000;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        .login-box input[type="text"]:focus,
+        .login-box input[type="password"]:focus {
+            border-color: #077d44;
+            /* Muda a cor da borda para um tom de laranja */
+            outline: none;
+            /* Remove o contorno padrão (se desejar) */
+        }
+
+        .login-box input[type="text"]::placeholder,
+        .login-box input[type="password"]::placeholder {
+            color: #f7f7f7;
+        }
+
+        
+
+        .login-box button {
+            width: 200px;
+            padding: 10px;
+            background-color: #077d44;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .login-box button:hover {
+            background-color: #077d11;
+            ;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-box">
+        <img src="./static/images/logopreto.png" alt="" width="300px" style="margin-top: -100px;">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="error-message">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form action="/autenticar" method="post">
+            <div class="usuario">
+                <label for="usuario">Email</label>
+                <input type="text" name="usuario" placeholder="Digite seu Email..." required>
+            </div>
+            <div class="senha">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" placeholder="Digite sua Senha..." required>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+
+<script>
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+            event.preventDefault();
+        }
+    }); // desabilita o f12 e ctrl+i
+
+    document.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+    }); // desabilita o clique com botão direito
+</script>
+
+</html>

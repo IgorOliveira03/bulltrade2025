@@ -1,0 +1,26 @@
+@import url('clash-display.css');
+@import '_section1.css';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'ClashDisplay-Regular';
+}
+
+.header {
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
