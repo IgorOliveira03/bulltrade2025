@@ -74,54 +74,7 @@
     </footer>
 
     <script>
-        // Função para marcar um vídeo como concluído
-        function markAsCompleted(button, percentage) {
-            if (!button.classList.contains('completed')) {
-                button.textContent = "Concluído";
-                button.classList.add('completed');
-                button.disabled = true;
-
-                // Atualiza o progresso
-                updateProgress(percentage);
-
-                // Salva o estado no localStorage
-                localStorage.setItem(button.id, 'completed');
-                localStorage.setItem('progress', percentage);
-            }
-        }
-
-        // Função para atualizar a barra de progresso
-        function updateProgress(percentage) {
-            const progressBar = document.getElementById('progress');
-            progressBar.style.width = percentage + '%';
-            progressBar.textContent = percentage + '%';
-
-       }
-
-        // Função para carregar o estado salvo ao recarregar a página
-        function loadState() {
-            // Verifica o progresso salvo
-            const savedProgress = localStorage.getItem('progress');
-
-            if (savedProgress) {
-                updateProgress(parseInt(savedProgress));
-            }
-
-
-            // Verifica quais vídeos foram concluídos
-            const videos = ['video1', 'video2', 'video3', 'video4', 'video5'];
-            videos.forEach(videoId => {
-                if (localStorage.getItem(videoId)) {
-                    const button = document.getElementById(videoId);
-                    button.textContent = "Concluído";
-                    button.classList.add('completed');
-                    button.disabled = true;
-                }
-            });
-        }
-
-        // Carrega o estado ao carregar a página
-        window.onload = loadState;
+      
     </script>
   </body>
 </html>
