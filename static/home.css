@@ -292,6 +292,7 @@ button:hover {
 }
 .stats {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
@@ -300,6 +301,10 @@ button:hover {
   padding: 0px;
   border-radius: 10px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   margin: 5px;
   width: 100%;
 }
@@ -310,8 +315,13 @@ button:hover {
   margin-top: -15px;
 }
 .stat-box p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
+
+.stat-box:nth-child(2){
+  border-left: 1px solid var(--primary-color);
+}
+
 .stat-box span {
   font-size: 1.2rem;
   font-weight: 300;
