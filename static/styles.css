@@ -17,6 +17,8 @@ header {
   gap: 20px;
   margin: 20px auto;
   overflow-x: hidden;
+  text-decoration: none;
+  list-style: none;
 }
 
 header img {
