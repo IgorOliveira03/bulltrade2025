@@ -73,7 +73,7 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: #090909;
-  border-top: 0.5px solid var(--primary-color);
+  border-top: 0.5px solid #3a3a3a;
   color: white;
   text-align: center;
   padding: 10px 0;
@@ -111,7 +111,7 @@ footer nav a img {
 
 footer nav .live {
   background-color: var(--primary-color);
-  padding: 8px 14px;
+  padding: 7px 14px;
   border-radius: 50%;
   margin-top: -10px;
   box-shadow: 0 0 20px var(--primary-color);
