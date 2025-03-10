@@ -307,6 +307,7 @@ button:hover {
   justify-content: space-between;
   margin: 5px;
   width: 100%;
+  border-left: 1px solid var(--primary-color);
 }
 .stat-box p:nth-child(2) {
   color: var(--primary-color);
@@ -318,9 +319,6 @@ button:hover {
   font-size: 1.2rem;
 }
 
-.stat-box:nth-child(2){
-  border-left: 1px solid var(--primary-color);
-}
 
 .stat-box span {
   font-size: 1.2rem;
