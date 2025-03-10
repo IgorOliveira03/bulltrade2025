@@ -111,7 +111,7 @@ footer nav a img {
 
 footer nav .live {
   background-color: var(--primary-color);
-  padding: 10px 14px;
+  padding: 8px 14px;
   border-radius: 50%;
   margin-top: -10px;
   box-shadow: 0 0 20px var(--primary-color);
