@@ -101,6 +101,10 @@ footer nav a {
   color: #ccc;
 }
 
+footer nav a:hover {
+  color: var(--primary-color);
+}
+
 footer nav a img {
   width: 17px;
 }
@@ -118,6 +122,3 @@ footer nav .live img {
   width: 20px;
 }
 
-footer nav a:hover {
-  text-decoration: underline;
-}
