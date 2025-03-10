@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session 
-import random 
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
+import random
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -36,7 +36,8 @@ def autenticar():
             session['usuario'] = usuario
             session['nome'] = credenciais['nome']
             session['signals'] = []  # Inicializa a lista de sinais para o usuário logado
- #Redireciona para a página inicial
+            session['progresso'] = 0  # Inicializa o progresso do usuário
+            session['botoes_concluidos'] = []  # Inicializa a lista de botões concluídos
             return redirect(url_for('home'))
 
     flash('Usuário ou senha incorretos!')
@@ -50,13 +51,21 @@ def home():
         return redirect(url_for('login'))
     
     nome_usuario = session.get('nome')  # Obtém o usuário da sessão
-    return render_template('home.html', nome=nome_usuario)
+    progresso = session.get('progresso', 0)
+    botoes_concluidos = session.get('botoes_concluidos', [])
+    return render_template('home.html', nome=nome_usuario, progresso=progresso, botoes_concluidos=botoes_concluidos)
 
 
 @app.route('/academy')
 def academy():
+    if 'usuario' not in session:
+        flash('Você precisa estar logado para acessar.')
+        return redirect(url_for('login'))
+    
     nome_usuario = session.get('nome')  # Obtém o usuário da sessão
-    return render_template('academy.html', nome=nome_usuario)
+    progresso = session.get('progresso', 0)
+    botoes_concluidos = session.get('botoes_concluidos', [])
+    return render_template('academy.html', nome=nome_usuario, progresso=progresso, botoes_concluidos=botoes_concluidos)
 
 
 @app.route('/logout')
@@ -66,103 +75,23 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/generate-random-signal', methods=['GET'])
-def generate_random_signal():
-    if 'usuario' not in session:
-        return jsonify({"error": "Usuário não está logado."}), 403
-
-    asset = random.choice(assets)
-    direction = random.choice(directions)
-    duration = random.choice(durations)
- # Adiciona o horário no formato HH:MM:SS
-    signal = {"asset": asset, "direction": direction, "duration": duration, "time_sent": (datetime.now() + timedelta(hours=-3) + timedelta(minutes=1)).strftime('%H:%M:%S')}
-
-    # Adiciona o sinal gerado à lista do usuário logado
-    session['signals'].append(signal)
-    session.modified = True  # Necessário para salvar alterações na sessão
-    return jsonify(signal)
-
-
-
-
-@app.route('/get-signals', methods=['GET'])
-def get_signals():
-    if 'usuario' not in session:
-        return jsonify({"error": "Usuário não está logado."}), 403
-
-    # Retorna apenas os sinais do usuário logado
-    return jsonify(session.get('signals', []))
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-
-## GERENCIAMENTO
-
-# GERENCIAMENTO DA BANCA
-
-# Inicializa a banca do usuário após autenticação
-@app.route('/inicializar-banca', methods=['POST'])
-def inicializar_banca():
-    if 'usuario' not in session:
-        return jsonify({"error": "Usuário não está logado."}), 403
-
-    saldo_inicial = request.json.get('saldo_inicial', 0)
-    session['banca'] = {
-        "saldo": float(saldo_inicial),
-        "operacoes": []
-    }
-    session.modified = True
-    return jsonify({"message": "Banca inicializada com sucesso.", "saldo": session['banca']['saldo']})
-
-
-# Registrar operação
-@app.route('/registrar-operacao', methods=['POST'])
-def registrar_operacao():
+@app.route('/marcar-concluido', methods=['POST'])
+def marcar_concluido():
     if 'usuario' not in session:
         return jsonify({"error": "Usuário não está logado."}), 403
 
     data = request.json
-    valor = float(data.get('valor', 0))
-    resultado = data.get('resultado')  # "win" ou "loss"
+    botao_id = data.get('botao_id')
+    progresso = data.get('progresso')
 
-    if 'banca' not in session:
-        return jsonify({"error": "Banca não inicializada."}), 400
-
-    if resultado == 'win':
-        lucro = valor * 0.90  # Lucro de 90%
-        session['banca']['saldo'] += lucro
-        operacao = {
-            "tipo": "win",
-            "valor": valor,
-            "lucro": lucro,
-            "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        }
-    elif resultado == 'loss':
-        session['banca']['saldo'] -= valor
-        operacao = {
-            "tipo": "loss",
-            "valor": valor,
-            "lucro": -valor,
-            "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        }
+    if botao_id not in session.get('botoes_concluidos', []):
+        session['botoes_concluidos'].append(botao_id)
+        session['progresso'] = progresso
+        session.modified = True
+        return jsonify({"message": "Botão marcado como concluído.", "progresso": progresso})
     else:
-        return jsonify({"error": "Resultado inválido. Use 'win' ou 'loss'."}), 400
-
-    session['banca']['operacoes'].append(operacao)
-    session.modified = True
-
-    return jsonify({"message": "Operação registrada com sucesso.", "saldo_atual": session['banca']['saldo']})
+        return jsonify({"message": "Botão já concluído."})
 
 
-@app.route('/obter-banca', methods=['GET'])
-def obter_banca():
-    if 'usuario' not in session:
-        return jsonify({"error": "Usuário não está logado."}), 403
-
-    if 'banca' not in session:
-        return jsonify({"error": "Banca não inicializada."}), 400
-
-    return jsonify(session['banca'])
+if __name__ == '__main__':
+    app.run(debug=True)
