@@ -11,381 +11,490 @@
       type="image/x-icon"
     />
 
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script
+      type="text/javascript"
+      src="https://s3.tradingview.com/tv.js"
+    ></script>
 
     <style>
-       @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,500;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,500;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-       :root {
+      :root {
         --desligado: red;
         --primary-color: #00bf63;
-       }
+      }
 
-/* Estilos Gerais */
-body {
-  font-family:  'Jost', serif; 
-  font-optical-sizing: auto;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
-  background-color: #010004;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  /* Impede seleção de texto */
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+      /* Estilos Gerais */
+      body {
+        font-family: 'Jost', serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        margin: 0;
+        padding: 0;
+        background-color: #010004;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow-x: hidden;
+        /* Impede seleção de texto */
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
 
-  background-image: url(../static/images/blur1.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-  
-}
+        background-image: url(../static/images/blur1.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
+      }
 
-/* HEADER */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 99%;
-  gap: 20px;
-  margin: 20px;
-  overflow-x: hidden;
-}
+      /* HEADER */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 99%;
+        gap: 20px;
+        margin: 20px;
+        overflow-x: hidden;
+      }
 
-header img {
-  width: 80px;
-  pointer-events: none;
-  -webkit-user-drag: none;
-  user-select: none;
-}
+      header img {
+        width: 80px;
+        pointer-events: none;
+        -webkit-user-drag: none;
+        user-select: none;
+      }
 
-header .menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
+      header .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+      }
 
-header .menu h4 {
-  background-color: var(--primary-color);
-  padding: 10px 15px;
-  border-radius: 5px;
-}
+      header .menu h4 {
+        background-color: var(--primary-color);
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
 
-header .menu a {
-  text-decoration: none;
-  color: #fff;
-}
+      header .menu a {
+        text-decoration: none;
+        color: #fff;
+      }
 
-/* Container */
-.container {
-  text-align: center;
-  border-radius: 25px 25px 0 0;
-  padding: 0px 0px 200px 0;
-  margin: 20px 0 0 0;
-  width: 99%;
-  display: flex;
-  margin: 10px auto 0 auto;
-  flex-direction: column;
-  align-items: center;
-  /* border: 1px solid #fff; */
-  overflow: hidden;
-  background-color: #000;
-  border: 1px solid var(--primary-color);
-}
+      /* Container */
+      .container {
+        text-align: center;
+        border-radius: 25px 25px 0 0;
+        padding: 0px 0px 200px 0;
+        margin: 20px 0 0 0;
+        width: 99%;
+        display: flex;
+        margin: 10px auto 0 auto;
+        flex-direction: column;
+        align-items: center;
+        /* border: 1px solid #fff; */
+        overflow: hidden;
+        background-color: #000;
+        border: 1px solid var(--primary-color);
+      }
 
-.dash {
-      position: relative;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
+      .dash {
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
 
+      .circulo {
+        width: 120px;
+        height: 120px;
+        border: 5px solid #2b2b3f;
+        border-top: 5px solid var(--primary-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        position: absolute;
+        top: -35px;
+        left: -12px;
+        overflow-x: hidden;
+      }
 
-.circulo {
-      width: 120px;
-      height: 120px;
-      border: 5px solid #2b2b3f;
-      border-top: 5px solid var(--primary-color);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      position: absolute;
-      top: -35px;
-      left: -12px;
-      overflow-x: hidden;
-    }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
+      .analise {
+        padding: 0px 0px;
+        border-radius: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 20px;
+      }
 
-    @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+      .analise::before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        top: 12px;
+        left: 0px;
+        margin: 7px;
+        border: 4px solid transparent;
+        animation: bolinha 0.8s infinite linear;
+        opacity: 1;
+        background-color: transparent;
+      }
+
+      @keyframes bolinha {
+        0% {
+          box-shadow: 0 0 0px var(--desligado);
+          background-color: transparent;
+          border: 4px solid transparent;
+          opacity: 0;
         }
 
+        50% {
+          box-shadow: 0 0 10px var(--desligado);
+          background-color: var(--desligado);
+          border: 4px solid var(--desligado);
+          opacity: 1;
+        }
 
-.analise {
-  padding: 0px 0px;
-  border-radius: 10px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 90%;
-  margin-top: 20px;
-}
+        100% {
+          box-shadow: 0 0 60px var(--desligado);
+          background-color: var(--desligado);
+          border: 4px solid var(--desligado);
+          opacity: 1;
+        }
+      }
 
+      /* Título */
+      h3 {
+        font-size: 0.8rem;
+        text-shadow: 0 0 1px #fff;
+        background-color: #000;
+        border: 1px solid var(--primary-color);
+        border-radius: 9px;
+        padding: 13px 20px;
+      }
 
-.analise::before {
-  content: '';
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  border-radius: 50%;
-  top: 12px;
-  left: 0px;
-  margin: 7px;
-  border: 4px solid transparent;
-  animation: bolinha .8s infinite linear;
-  opacity: 1;
-  background-color: transparent;
-}
+      .btnIniciar {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 15px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 0 8px var(--primary-color);
+      }
 
-@keyframes bolinha {
-  0% { 
-    box-shadow: 0 0 0px var(--desligado);   
-    background-color: transparent;   
-    border: 4px solid transparent; opacity: 0;
-  }
+      .btnIniciar:hover {
+        background-color: var(--primary-color);
+      }
 
-  50% {
-    box-shadow: 0 0 10px var(--desligado);   
-    background-color: var(--desligado);   
-    border: 4px solid var(--desligado); 
-    opacity: 1;
-  }
+      /* Botão */
+      .btnAnalisar {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-top: 0px;
+        margin-bottom: 30px;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        pointer-events: none;
+        opacity: 0.5;
+      }
 
-  100% {
-    box-shadow: 0 0 60px var(--desligado);   
-    background-color: var(--desligado);   
-    border: 4px solid var(--desligado); 
-    opacity: 1;
-  }
-}
+      button:hover {
+        background-color: #3e8e41;
+      }
 
+      /* Lista de Sinais */
+      .signal-list {
+        list-style: none;
+        padding: 0px;
+        margin-top: 20px;
+        background-color: #2b2b3f;
+        border-radius: 10px;
+        box-shadow: inset 5px 5px 10px #141422, inset -5px -5px 10px #28283e;
+      }
 
+      .signal-list li {
+        padding: 15px;
+        border-bottom: 1px solid #3e3e5e;
+      }
 
-/* Título */
-h3 {
-  font-size: .8rem;
-  text-shadow: 0 0 1px #fff;
-  background-color: #000;
-  border: 1px solid var(--primary-color);
-  border-radius: 9px;
-  padding: 13px 20px;
-}
+      .signal-list li:last-child {
+        border-bottom: none;
+      }
 
-.btnIniciar {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 15px;
-  font-size: .8rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 0 8px var(--primary-color);
-}
+      /* Mensagem Alerta */
+      #alert-message {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+      }
 
-.btnIniciar:hover {
-  background-color: var(--primary-color);
-}
+      #alert-message.success {
+        background-color: var(--primary-color);
+      }
 
+      #alert-message.error {
+        background-color: #f44336;
+      }
 
+      .painel {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        place-items: center;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 8px;
+      }
 
+      #ativo,
+      #timeframe,
+      #ordem,
+      #horario {
+        text-align: center;
+        background-color: #131313;
+        width: 120px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1.3rem;
+        color: #fff;
 
-/* Botão */
-.btnAnalisar {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 12px 25px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  margin-top: 0px;
-  margin-bottom: 30px;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-  pointer-events: none;
-  opacity: .5;
-}
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
 
-button:hover {
-  background-color: #3e8e41;
-}
+      .ativo,
+      .timeframe,
+      .ordem,
+      .horario {
+        margin-top: 8px;
+        color: #fff;
+        font-size: 0.9rem;
+      }
 
-/* Lista de Sinais */
-.signal-list {
-  list-style: none;
-  padding: 0px;
-  margin-top: 20px;
-  background-color: #2b2b3f;
-  border-radius: 10px;
-  box-shadow: inset 5px 5px 10px #141422, inset -5px -5px 10px #28283e;
-}
-
-.signal-list li {
-  padding: 15px;
-  border-bottom: 1px solid #3e3e5e;
-}
-
-.signal-list li:last-child {
-  border-bottom: none;
-}
-
-/* Mensagem Alerta */
-#alert-message {
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 5px;
-  display: none;
-}
-
-#alert-message.success {
-  background-color: var(--primary-color);
-}
-
-#alert-message.error {
-  background-color: #f44336;
-}
-
-.painel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  place-items: center;
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-#ativo,
-#timeframe,
-#ordem,
-#horario {
-  text-align: center;
-  background-color: #131313;
-  width: 120px;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 1.3rem;
-  color: #fff;
- 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.ativo,
-.timeframe,
-.ordem,
-.horario {
-  margin-top: 8px;
-  color: #fff;
-  font-size: 0.9rem;
-}
+      .pegarsinal {
+        font-size: 1rem;
+        border-radius: 5px;
+        padding: 5px 15px;
+        text-decoration: none;
+        background-color: var(--primary-color);
+        color: #fff;
+        display: none;
+        cursor: pointer;
+      }
 
 
 
-.pegarsinal {
-  font-size: 1rem;
-  border-radius: 5px;
-  padding: 5px 15px;
-  text-decoration: none;
-  background-color: var(--primary-color);
-  color: #fff;
-  display: none;
-  cursor: pointer;
-}
+      .dashboard {
+        width: 90%;
+        max-width: 500px;
+        background-color: transparent;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .stats {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .stat-box {
+        background-color: #090909;
+        padding: 0px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 5px;
+        width: 100%;
+      }
+      .stat-box p:nth-child(2) {
+        color: var(--primary-color);
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-top: -15px;
+      }
+      .stat-box p {
+        font-size: 1.3rem;
+      }
+      .stat-box span {
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: #ccc;
+      }
+      .trading-academy {
+        background-color: #090909;
+        padding: 15px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .trading-academy img {
+        width: 100px;
+        height: 100px;
+        border-radius: 5px;
+      }
+      .academy-info {
+        flex: 1;
+      }
+      .academy-info h3 {
+        margin-bottom: 5px;
+      }
+      .academy-info p {
+        font-size: 0.9rem;
+        color: #bbb;
+      }
+      .button {
+        background-color: #00bf63;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1rem;
+        display: inline-block;
+        margin-top: 10px;
+      }
+      /* @media (max-width: 400px) {
+        .stats {
+          flex-direction: column;
+        }
+        .stat-box {
+          margin-bottom: 10px;
+        }
+      } */
+
+      iframe {
+        display: none;
+        width: 90%;
+        height: 90vh;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        margin-bottom: 50px;
+      }
 
 
 
-iframe {
-  display: none;
-  width: 90%; 
-  height: 90vh; 
-  border: 1px solid #fff; 
-  border-radius: 10px; 
-  margin-bottom: 50px;
-}
+      footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #090909;
+            border-top: .5px solid #3a3a3a;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
 
-@media (min-width: 800px) {
-  body {
-    overflow-x: hidden;
-    overflow-y: initial;
-  }
-  .analise {
-    width: 39%;
-    margin: 10px auto;
-  }
-  .container {
-  text-align: center;
-  border-radius: 15px;
-  padding: 0px 30px;
-  margin: 0 0 50px 0;
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
-}
+        footer nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
 
-h1 {
-  margin-bottom: 5px;
-  font-size: 2.5rem;
-}
+        footer nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: "Inter", sans-serif;
+            font-weight: 200;
+        }
 
-.ativo,
-.timeframe,
-.ordem,
-.horario {
-  margin-top: 5px;
-  color: #ccc;
-  font-size: 0.9rem;
-}
+        footer nav .live {
+          background-color: var(--primary-color);
+          padding: 18px 10px;
+          border-radius: 50%;
+          margin-top: -10px;
+          box-shadow: 0 0 20px var(--primary-color);
+        }
 
-/* Botão */
-button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 12px 25px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  transition: background-color 0.3s ease;
-}
+        footer nav a:hover {
+            text-decoration: underline;
+        }
 
-iframe {
-  display: block;
-  width: 70%; 
-  height: 70vh; 
-  border: 1px solid #fff; 
-  border-radius: 10px; 
-  margin-bottom: 50px;
-}
-}
+      @media (min-width: 800px) {
+        body {
+          overflow-x: hidden;
+          overflow-y: initial;
+        }
+        .analise {
+          width: 39%;
+          margin: 10px auto;
+        }
+        .container {
+          text-align: center;
+          border-radius: 15px;
+          padding: 0px 30px;
+          margin: 0 0 50px 0;
+          width: 35%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 50px;
+        }
+
+        h1 {
+          margin-bottom: 5px;
+          font-size: 2.5rem;
+        }
+
+        .ativo,
+        .timeframe,
+        .ordem,
+        .horario {
+          margin-top: 5px;
+          color: #ccc;
+          font-size: 0.9rem;
+        }
+
+        /* Botão */
+        button {
+          background-color: var(--primary-color);
+          color: white;
+          border: none;
+          border-radius: 5px;
+          padding: 12px 25px;
+          font-size: 1.5rem;
+          cursor: pointer;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          transition: background-color 0.3s ease;
+        }
+
+        iframe {
+          display: block;
+          width: 70%;
+          height: 70vh;
+          border: 1px solid #fff;
+          border-radius: 10px;
+          margin-bottom: 50px;
+        }
+      }
     </style>
-
   </head>
 
   <body>
@@ -403,7 +512,6 @@ iframe {
       <h3 id="sinal">I.A DESATIVADA</h3>
 
       <button id="startSignal" class="btnIniciar">INICIAR I.A</button>
-      
     </div>
     <div class="container">
       <!-- <h1>BULLTRADE</h1> -->
@@ -411,10 +519,6 @@ iframe {
         <h3 id="txtCirculo">R$ 15.000,00</h3>
         <div class="circulo"></div>
       </div> -->
-
-
-    
-
 
       <div class="painel">
         <div class="ativo">
@@ -437,18 +541,40 @@ iframe {
           <p id="horario">-</p>
         </div>
       </div>
-      <!-- <h5>Horário Atual</h5>
-      <div style="margin-top: -20px; margin-bottom: 20px;" id="clock"></div> -->
 
-       <!-- <button onclick="generateSignal()" id="btnAnalisar" class="btnAnalisar">
+      <!-- <button onclick="generateSignal()" id="btnAnalisar" class="btnAnalisar">
         ANALISAR ENTRADA
       </button> -->
 
-      <a id="btnAnalisar"  class="btnAnalisar" target="_blank"
-      href="https://trade.bull-ex.com/register?aff=404504&aff_model=revenue&afftrack=">
-      AGUARDANDO SINAL
-    </a>
-   
+      <a
+        id="btnAnalisar"
+        class="btnAnalisar"
+        target="_blank"
+        href="https://trade.bull-ex.com/register?aff=404504&aff_model=revenue&afftrack="
+      >
+        AGUARDANDO SINAL
+      </a>
+
+      <div class="dashboard">
+        <div class="stats">
+          <div class="stat-box">
+            <p>Usuários Online</p>
+            <p>1.248 <span>traders</span></p>
+          </div>
+          <div class="stat-box">
+            <p>Sinais Gerados</p>
+            <p>8.245 <span>hoje</span></p>
+          </div>
+        </div>
+        <div class="trading-academy">
+          <img src="../static/images/logo.png" alt="Trading Academy" />
+          <div class="academy-info">
+            <h3>Trading Academy</h3>
+            <p>5 aulas · 8795 alunos</p>
+            <a href="#" class="button">Começar Agora</a>
+          </div>
+        </div>
+      </div>
 
       <!-- <h2>Sinais Recentes:</h2>
       <ul id="signals" class="signal-list"></ul> -->
@@ -456,16 +582,28 @@ iframe {
 
     <!-- <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
     </div> -->
-    <iframe src="https://trade.bull-ex.com/traderoom" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals" allow="fullscreen; autoplay; clipboard-write"></iframe>
+    <iframe
+      src="https://trade.bull-ex.com/traderoom"
+      sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+      allow="fullscreen; autoplay; clipboard-write"
+    ></iframe>
 
 
 
-    
+
+    <footer>
+      <nav>
+          <a href="#">Home</a>
+          <a href="#">Academy</a>
+          <a class="live" href="#">Lives</a>
+          <a href="#">News</a>
+          <a href="#">Histórico</a>
+      </nav>
+  </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-
       document.addEventListener('keydown', function (event) {
         if (
           event.key === 'F12' ||
@@ -483,139 +621,141 @@ iframe {
 
       const btnAnalisar = document.querySelector('.btnAnalisar');
       const bolinha = document.getElementById('sinal');
-      const startBot = document.getElementById("startSignal")
-
-
+      const startBot = document.getElementById('startSignal');
 
       async function generateSignal() {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
 
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+        btnAnalisar.style.opacity = '.5';
+        btnAnalisar.style.pointerEvents = 'none';
+        bolinha.textContent = 'ANALISANDO';
 
-    btnAnalisar.style.opacity = '.5';
-    btnAnalisar.style.pointerEvents = 'none';
-    bolinha.textContent = 'ANALISANDO';
+        await new Promise((resolve) => setTimeout(resolve, 8000));
 
-    await new Promise((resolve) => setTimeout(resolve, 8000));
+        bolinha.textContent = 'POSSÍVEL SINAL';
 
-    bolinha.textContent = 'POSSÍVEL SINAL';
+        btnAnalisar.style.pointerEvents = 'none';
+        await new Promise((resolve) => setTimeout(resolve, 8000));
 
-    btnAnalisar.style.pointerEvents = 'none';
-    await new Promise((resolve) => setTimeout(resolve, 8000));
+        bolinha.textContent = 'OPERAÇÃO ANALISADA';
+        btnAnalisar.textContent = 'FAZER OPERAÇÃO';
 
-    bolinha.textContent = 'OPERAÇÃO ANALISADA';
-    btnAnalisar.textContent = 'FAZER OPERAÇÃO'
+        btnAnalisar.style.backgroundColor = '#4CAF50';
+        btnAnalisar.style.opacity = '1';
+        btnAnalisar.style.pointerEvents = 'initial';
 
-    btnAnalisar.style.backgroundColor = '#4CAF50';
-    btnAnalisar.style.opacity = '1';
-    btnAnalisar.style.pointerEvents = 'initial';
+        try {
+          const response = await fetch('/generate-random-signal');
+          const data = await response.json();
+          const alertMessage = document.getElementById('alert-message');
 
-    try {
-        const response = await fetch('/generate-random-signal');
-        const data = await response.json();
-        const alertMessage = document.getElementById('alert-message');
+          const ativo = document.getElementById('ativo');
+          const timeframe = document.getElementById('timeframe');
+          const ordem = document.getElementById('ordem');
+          const horario = document.getElementById('horario');
 
-        const ativo = document.getElementById('ativo');
-        const timeframe = document.getElementById('timeframe');
-        const ordem = document.getElementById('ordem');
-        const horario = document.getElementById('horario');
+          ativo.textContent = data['asset'];
+          ordem.textContent = data['direction'];
+          timeframe.textContent = data['duration'];
 
+          if (
+            data['asset'] === 'TRUMP Coin' ||
+            data['asset'] === 'Meta' ||
+            data['asset'] === 'Google' ||
+            data['asset'] === 'Tesla' ||
+            data['asset'] === 'Apple' ||
+            data['asset'] === 'Amazon' ||
+            data['asset'] === 'Nike, Inc.' ||
+            data['asset'] === "McDonald's" ||
+            data['asset'] === 'Coca-Cola' ||
+            data['asset'] === 'MELANIA Coin'
+          ) {
+            timeframe.textContent = 'M1';
+          }
 
-        ativo.textContent = data['asset'];
-        ordem.textContent = data['direction'];
-        timeframe.textContent = data['duration'];
-
-
-        if (data['asset'] === "TRUMP Coin" || data['asset'] === "Meta" || data['asset'] === "Google" || data['asset'] === "Tesla" || data['asset'] === "Apple" || data['asset'] === "Amazon" || data['asset'] === "Nike, Inc." || data['asset'] === "McDonald's" || data['asset'] === "Coca-Cola" || data['asset'] === "MELANIA Coin") {
-          timeframe.textContent = "M1"
-        }
-        
-
-        function updateTime() {
+          function updateTime() {
             const now = new Date();
             let hours = now.getHours();
             let minutes = now.getMinutes() + 1;
             let segundos = now.getSeconds();
 
             if (minutes >= 60) {
-                minutes -= 60;
-                hours += 1;
+              minutes -= 60;
+              hours += 1;
             }
             if (hours >= 24) {
-                hours = 0;
+              hours = 0;
             }
             if (segundos >= 59) {
-                segundos = 0;
+              segundos = 0;
             }
 
             const formattedHours = String(hours).padStart(2, '0');
             const formattedMinutes = String(minutes).padStart(2, '0');
             const formattedSegundos = String(segundos).padStart(2, '0');
             horario.textContent = `${formattedHours}:${formattedMinutes}:${formattedSegundos}`;
+          }
+
+          updateTime();
+          fetchSignals();
+        } catch (error) {
+          const alertMessage = document.getElementById('alert-message');
+          alertMessage.textContent = 'Erro ao gerar sinal. Tente novamente.';
+          alertMessage.className = 'error';
+          alertMessage.style.display = 'block';
+          setTimeout(() => {
+            alertMessage.style.display = 'none';
+          }, 4000);
         }
 
-        updateTime();
-        fetchSignals();
-    } catch (error) {
-        const alertMessage = document.getElementById('alert-message');
-        alertMessage.textContent = 'Erro ao gerar sinal. Tente novamente.';
-        alertMessage.className = 'error';
-        alertMessage.style.display = 'block';
-        setTimeout(() => {
-            alertMessage.style.display = 'none';
-        }, 4000);
-    }
+        await new Promise((resolve) => setTimeout(resolve, 60000));
 
-    await new Promise((resolve) => setTimeout(resolve, 60000));
+        bolinha.textContent = 'I.A INICIADA';
+        btnAnalisar.textContent = 'AGUARDANDO SINAL';
+        btnAnalisar.style.opacity = '.5';
+        btnAnalisar.style.pointerEvents = 'none';
 
-    bolinha.textContent = 'I.A INICIADA';
-    btnAnalisar.textContent = 'AGUARDANDO SINAL';
-    btnAnalisar.style.opacity = '.5';
-    btnAnalisar.style.pointerEvents = 'none';
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        btnAnalisar.style.backgroundColor = '#4CAF50';
 
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-    btnAnalisar.style.backgroundColor = '#4CAF50';
+        // Aguarda 3 minutos antes de rodar novamente
+        setTimeout(generateSignal, 300000);
+      }
 
-    // Aguarda 3 minutos antes de rodar novamente
-    setTimeout(generateSignal, 300000);
+      // Variável de controle para verificar o estado da I.A
+      let iaIniciada = false;
 
-}
+      // Adicionar evento ao botão para iniciar ou parar o processo
+      document
+        .getElementById('startSignal')
+        .addEventListener('click', function () {
+          if (!iaIniciada) {
+            // Iniciar a I.A
+            bolinha.textContent = 'I.A INICIADA';
+            document
+              .querySelector('.analise')
+              .style.setProperty('--desligado', '#00bf63');
+            startBot.style.backgroundColor = 'red';
+            startBot.style.boxShadow = '0 0 8px red';
+            startBot.textContent = 'PARAR I.A';
+            generateSignal();
 
+            iaIniciada = true;
+          } else {
+            // Parar a I.A
+            document
+              .querySelector('.analise')
+              .style.setProperty('--desligado', '#ff0000');
+            startBot.style.backgroundColor = '#00bf63';
 
+            location.reload();
 
+            // Aqui você pode adicionar lógica para parar a função generateSignal se necessário
+            // Exemplo: cancelando um intervalo ou algo relacionado
 
-// Variável de controle para verificar o estado da I.A
-let iaIniciada = false;
-
-// Adicionar evento ao botão para iniciar ou parar o processo
-document.getElementById("startSignal").addEventListener("click", function () {
-  if (!iaIniciada) {
-    // Iniciar a I.A
-    bolinha.textContent = 'I.A INICIADA';
-    document.querySelector(".analise").style.setProperty("--desligado", "#00bf63");
-    startBot.style.backgroundColor = "red";
-    startBot.style.boxShadow = "0 0 8px red"
-    startBot.textContent = "PARAR I.A";
-    generateSignal();
-    
-    iaIniciada = true;
-  } else {
-    // Parar a I.A
-    document.querySelector(".analise").style.setProperty("--desligado", "#ff0000");
-    startBot.style.backgroundColor = "#00bf63";
-
-
-    location.reload();
-    
-    // Aqui você pode adicionar lógica para parar a função generateSignal se necessário
-    // Exemplo: cancelando um intervalo ou algo relacionado
-
-    
-    iaIniciada = false;
-  }
-});
-
-
-
+            iaIniciada = false;
+          }
+        });
 
       // Função para buscar sinais e atualizar a lista
       async function fetchSignals() {
@@ -624,41 +764,43 @@ document.getElementById("startSignal").addEventListener("click", function () {
         const signalList = document.getElementById('signals');
         signalList.innerHTML = '';
 
-
         data.forEach((signal) => {
-
-
-          if (signal['asset'] === "TRUMP Coin" || signal['asset'] === "Meta" || signal['asset'] === "Google" || signal['asset'] === "Tesla" || signal['asset'] === "Apple" || signal['asset'] === "Amazon" || signal['asset'] === "Nike, Inc." || signal['asset'] === "McDonald's" || signal['asset'] === "Coca-Cola" || signal['asset'] === "MELANIA Coin") {
-            signal['duration'] = "M1";
+          if (
+            signal['asset'] === 'TRUMP Coin' ||
+            signal['asset'] === 'Meta' ||
+            signal['asset'] === 'Google' ||
+            signal['asset'] === 'Tesla' ||
+            signal['asset'] === 'Apple' ||
+            signal['asset'] === 'Amazon' ||
+            signal['asset'] === 'Nike, Inc.' ||
+            signal['asset'] === "McDonald's" ||
+            signal['asset'] === 'Coca-Cola' ||
+            signal['asset'] === 'MELANIA Coin'
+          ) {
+            signal['duration'] = 'M1';
           }
 
           const li = document.createElement('li');
 
           li.textContent = `${signal['asset']}   -   ${signal['direction']}   -   ${signal['duration']} - ${signal['time_sent']}`;
           signalList.prepend(li);
-        
         });
       }
-
-
 
       setInterval(fetchSignals, 4000); // Atualizar a lista a cada 5 segundos
       fetchSignals(); // Atualização inicial
 
-
-
-
-
-
       function updateClock() {
-            let now = new Date();
-            let hours = now.getHours().toString().padStart(2, '0');
-            let minutes = now.getMinutes().toString().padStart(2, '0');
-            let seconds = now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock(); // Atualiza imediatamente sem esperar o intervalo
+        let now = new Date();
+        let hours = now.getHours().toString().padStart(2, '0');
+        let minutes = now.getMinutes().toString().padStart(2, '0');
+        let seconds = now.getSeconds().toString().padStart(2, '0');
+        document.getElementById(
+          'clock'
+        ).innerText = `${hours}:${minutes}:${seconds}`;
+      }
+      setInterval(updateClock, 1000);
+      updateClock(); // Atualiza imediatamente sem esperar o intervalo
     </script>
   </body>
 </html>
