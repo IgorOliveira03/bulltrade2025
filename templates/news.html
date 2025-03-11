@@ -27,6 +27,13 @@
         .titulo-news h1 {
             font-size: 1.5rem;
             margin: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .titulo-news h1 img {
+            width: 30px;
         }
 
         .titulo-news p {
@@ -37,6 +44,7 @@
         iframe {
             width: 100%;
             height: 100%;
+            margin-bottom: 100px;
         }
     </style>
   </head>
@@ -55,7 +63,7 @@
 
 
       <div class="titulo-news">
-        <h1>Eventos Econômicos</h1>
+        <h1> <img src="../static/images/internet.png" alt="">Eventos Econômicos</h1>
 
         <p>Acompanhe os principais eventos econômicos do mercado</p>
 
@@ -71,18 +79,22 @@
           <a href="{{ url_for('home') }}"
             ><img src="../static/images/house-chimney-user.png" alt="" />Home</a
           >
+
           <a href="{{ url_for('academy') }}"
             ><img src="../static/images/graduation-cap.png" alt="" />Academy</a
           >
+
           <a class="live" href="#"
             ><img src="../static/images/signal-stream.png" alt="" />Lives</a
           >
-          <a href="#"
-            ><img src="../static/images/newspaper.png" alt="" />News</a
+
+          <a href="#" style="color: var(--primary-color)"
+            ><img src="../static/images/newspaper-ativo.png" alt="" />News</a
           >
-          <a style="color: var(--primary-color)" href=""
+
+          <a href="{{ url_for('home') }}"
             ><img
-              src="../static/images/clock-future-past-ativo.png"
+              src="../static/images/clock-future-past.png"
               alt=""
             />Histórico</a
           >
