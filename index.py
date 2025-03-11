@@ -10,7 +10,8 @@ USUARIOS_VALIDOS = [
     {"usuario": "bullex@gmail.com", "senha": "123", "nome": "Bullex"},
     {"usuario": "gui", "senha": "123", "nome": "Gui"},
     {"usuario": "andrey", "senha": "123", "nome": "Andrey"},
-    {"usuario": "joao@gmail.com", "senha": "456", "nome": "João"}
+    {"usuario": "joao@gmail.com", "senha": "456", "nome": "João"},
+    {"usuario": "igor", "senha": "123", "nome": "Igor Oliveira"}
 ]
 
 @app.route('/usuarios')
