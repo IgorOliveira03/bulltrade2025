@@ -54,7 +54,8 @@ body {
         }
 
         form .usuario,
-        form .senha {
+        form .senha,
+        form .nome {
             text-align: left;
             color: #fff;
         }
@@ -64,13 +65,13 @@ body {
             margin-top: 5px;
         }
 
-        form.usuario label,
+        form .usuario label,
         form .senha label {
             font-weight: 700;
         }
 
         form input[type="text"],
-        form input[type="password"] {
+        form input[type="password"]{
             width: 90%;
             padding: 10px;
             margin-bottom: -10px;
@@ -132,13 +133,13 @@ body {
     <form method="POST" action="{{ url_for('cadastro') }}">
       <img src="./static/images/logopreto.png" alt="" width="300px" style="margin-top: 0px;">
         <label for="usuario">Usuário:</label>
-        <input type="text" id="usuario" name="usuario" required><br><br>
+        <input class="usuario" type="text" id="usuario" name="usuario" required><br><br>
 
         <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required><br><br>
+        <input class="senha" type="password" id="senha" name="senha" required><br><br>
 
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required><br><br>
+        <input class="nome" type="text" id="nome" name="nome" required><br><br>
 
         <button type="submit">Cadastrar</button>
     </form>
