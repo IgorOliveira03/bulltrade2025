@@ -72,9 +72,12 @@
       </button> -->
 
       <div class="progress-container">
-        <div class="progress-green" id="green-bar"></div>
-        <div class="progress-red" id="red-bar"></div>
-        <div class="progress-text" id="progress-text"></div>
+        <div class="progress-green" id="green-bar">
+            <span id="green-text"></span>
+        </div>
+        <div class="progress-red" id="red-bar">
+            <span id="red-text"></span>
+        </div>
     </div>
   
       <p id="percentage-text"></p>
@@ -158,15 +161,20 @@
 function updateBar() {
             let greenPercentage = Math.floor(Math.random() * 41) + 60; // Valor entre 60% e 100%
             let redPercentage = 100 - greenPercentage; // O restante é vermelho
-            
-            document.getElementById("green-bar").style.width = greenPercentage + "%";
-            document.getElementById("red-bar").style.width = redPercentage + "%";
-            
-            let progressText = `WIN ${greenPercentage}% | LOSS ${redPercentage}%`;
-            document.getElementById("progress-text").innerText = progressText;
 
-            // Ajusta a cor do texto dependendo do tamanho do verde
-            document.getElementById("progress-text").style.color = greenPercentage < 75 ? "white" : "white";
+            let greenBar = document.getElementById("green-bar");
+            let redBar = document.getElementById("red-bar");
+            let greenText = document.getElementById("green-text");
+            let redText = document.getElementById("red-text");
+
+            greenBar.style.width = greenPercentage + "%";
+            redBar.style.width = redPercentage + "%";
+
+            greenText.innerText = greenPercentage + "%";
+            redText.innerText = redPercentage > 0 ? redPercentage + "%" : "";
+
+            // Se a parte vermelha for muito pequena, esconde o texto para evitar sobreposição
+            redText.style.display = redPercentage < 10 ? "none" : "block";
         }
 
     
