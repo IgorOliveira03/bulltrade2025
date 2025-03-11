@@ -71,6 +71,15 @@
         ANALISAR ENTRADA
       </button> -->
 
+      <div class="progress-container">
+        <div class="progress-green" id="green-bar"></div>
+        <div class="progress-red" id="red-bar"></div>
+        <div class="progress-text" id="progress-text"></div>
+    </div>
+  
+      <p id="percentage-text"></p>
+  
+
         <a
           id="btnAnalisar"
           class="btnAnalisar"
@@ -145,6 +154,24 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+
+function updateBar() {
+            let greenPercentage = Math.floor(Math.random() * 41) + 60; // Valor entre 60% e 100%
+            let redPercentage = 100 - greenPercentage; // O restante é vermelho
+            
+            document.getElementById("green-bar").style.width = greenPercentage + "%";
+            document.getElementById("red-bar").style.width = redPercentage + "%";
+            
+            let progressText = `Verde: ${greenPercentage}% | Vermelho: ${redPercentage}%`;
+            document.getElementById("progress-text").innerText = progressText;
+
+            // Ajusta a cor do texto dependendo do tamanho do verde
+            document.getElementById("progress-text").style.color = greenPercentage < 75 ? "black" : "white";
+        }
+
+    
+
+
       function getRandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
@@ -193,6 +220,7 @@
         await new Promise((resolve) => setTimeout(resolve, 8000));
 
         bolinha.textContent = 'OPERAÇÃO ANALISADA';
+        updateBar();
         btnAnalisar.textContent = 'FAZER OPERAÇÃO';
 
         btnAnalisar.style.backgroundColor = '#4CAF50';

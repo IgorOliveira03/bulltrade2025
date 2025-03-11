@@ -349,6 +349,51 @@ button:hover {
   font-size: 0.9rem;
 }
 
+
+.progress-container {
+  width: 80%;
+  max-width: 400px;
+  height: 15px;
+  background-color: #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.progress-green {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  white-space: nowrap;
+}
+
+.progress-red {
+  height: 100%;
+  background-color: #f44336;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: #000;
+  font-size: 1rem;
+  z-index: 2;
+}
+
+
+
 .pegarsinal {
   font-size: 1rem;
   border-radius: 5px;
