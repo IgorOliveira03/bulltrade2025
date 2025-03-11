@@ -154,6 +154,7 @@
       const bolinha = document.getElementById('sinal');
       const startBot = document.getElementById('startSignal');
 
+
       async function generateSignal() {
         await new Promise((resolve) => setTimeout(resolve, 5000));
 
@@ -257,6 +258,7 @@
       let iaIniciada = false;
 
       // Adicionar evento ao botão para iniciar ou parar o processo
+  
       document
         .getElementById('startSignal')
         .addEventListener('click', function () {
@@ -266,6 +268,10 @@
             document
               .querySelector('.analise')
               .style.setProperty('--desligado', '#00bf63');
+              const waves = document.querySelectorAll(".wave");
+              waves[0].classList.add("waveativa");
+              waves[1].classList.add("waveativa");
+              waves[2].classList.add("waveativa");
             startBot.style.backgroundColor = 'var(--primary-color)';
             startBot.style.boxShadow = '0 0 8px #02ff84';
             startBot.textContent = 'ON';
