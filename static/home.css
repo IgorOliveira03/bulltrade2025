@@ -149,8 +149,9 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  width: 90%;
+  width: max-content;
   margin-top: 20px;
+
 }
 
 .analise::before {
@@ -159,8 +160,8 @@
   width: 1px;
   height: 1px;
   border-radius: 50%;
-  top: 12px;
-  left: 102px;
+  top: 10px;
+  left: 0;
   margin: 7px;
   border: 4px solid transparent;
   animation: bolinha 0.8s infinite linear;
@@ -199,6 +200,7 @@ h3 {
   border: 1px solid var(--primary-color);
   border-radius: 9px;
   padding: 13px 20px;
+
 }
 
 .btnIniciar {
@@ -422,7 +424,7 @@ iframe {
     overflow-y: initial;
   }
   .analise {
-    width: 39%;
+    width: max-content;
     margin: 10px auto;
   }
   .container {
