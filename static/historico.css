@@ -11,6 +11,9 @@
     padding: 15px;
     border-radius: 20px;
 }
+.history h3 {
+    font-size: 1.3rem;
+}
 .history-section {
     margin-top: 15px;
     padding: 5px 20px;
