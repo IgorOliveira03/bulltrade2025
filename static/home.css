@@ -353,8 +353,8 @@ button:hover {
 .progress-container {
   width: 80%;
   max-width: 400px;
-  height: 15px;
-  background-color: #ddd;
+  height: 20px;
+  background-color: #141422;
   border-radius: 15px;
   overflow: hidden;
   margin: 20px auto;
