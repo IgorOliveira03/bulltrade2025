@@ -15,15 +15,7 @@ USUARIOS_VALIDOS = [
 
 @app.route('/usuarios')
 def usuarios():
-    if 'usuario' not in session:
-        flash('Você precisa estar logado para acessar.')
-        return redirect(url_for('login'))
-
-    # Verifica se o usuário logado é um administrador (opcional)
-    if session['usuario'] != "bullex@gmail.com":
-        flash('Acesso negado. Somente o administrador pode visualizar os usuários.')
-        return redirect(url_for('home'))
-
+    # Renderiza a lista de usuários em um template HTML
     return render_template('usuarios.html', usuarios=USUARIOS_VALIDOS)
 
 # Listas predefinidas para geração de sinais aleatórios
