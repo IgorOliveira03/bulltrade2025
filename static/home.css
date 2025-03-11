@@ -12,6 +12,49 @@
   align-items: center;
 }
 
+.containerIA {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circleIA {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #00bf63, #3e8e41);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px #00bf63, 0 0 30px #3e8e41;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+      box-shadow: 0 0 10px #00bf63, 0 0 20px #3e8e41;
+  }
+  to {
+      box-shadow: 0 0 20px #00bf63, 0 0 40px #3e8e41;
+  }
+}
+
+.btnIA {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btnIA:hover {
+  background: #00bf63;
+  color: #0a0a0a;
+  box-shadow: 0 0 15px #00bf63;
+}
 
 
 /* Container */

@@ -66,8 +66,6 @@ header .menu a {
   color: #fff;
 }
 
-
-
 footer {
   position: fixed;
   bottom: 0;
@@ -107,6 +105,19 @@ footer nav a:hover {
 
 footer nav a img {
   width: 17px;
+  animation: bounce 1s linear infinite;
+}
+
+@keyframes bounce {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.05;
+  }
+  100% {
+    scale: 1;
+  }
 }
 
 footer nav .live {
@@ -116,9 +127,14 @@ footer nav .live {
   margin-top: -10px;
   box-shadow: 0 0 20px var(--primary-color);
   color: #fff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+footer nav .live:hover {
+  box-shadow: 0 0 40px var(--primary-color);
+  color: #fff;
 }
 
 footer nav .live img {
   width: 20px;
 }
-
