@@ -5,135 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#00bf63" />
     <title>BULLTRADE PRO</title>
-    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/styles.css" />
     <link
       rel="shortcut icon"
       href="static/images/logo.png"
       type="image/x-icon"
     />
-
-   
   </head>
 
   <body>
     <div class="imagembanner">
-    <header class="header">
-      <img src="../static/images/logo.png" alt="" />
-      <!-- <h1>BullTRADE</h1> -->
+      <header class="header">
+        <img src="../static/images/logo.png" alt="" />
+        <!-- <h1>BullTRADE</h1> -->
 
-      <div class="menu">
-        <a href="{{ url_for('logout') }}">SAIR</a>
-        <h4>Bem-Vindo, {{ nome }}!</h4>
-      </div>
-    </header>
+        <div class="menu">
+          <a href="{{ url_for('logout') }}">SAIR</a>
+          <h4>Bem-Vindo, {{ nome }}!</h4>
+        </div>
+      </header>
 
-
-    <div class="containerIA">
-      <div class="circleIA">
+      <div class="containerIA">
+        <div class="circleIA">
           <div class="wave"></div>
           <div class="wave"></div>
           <div class="wave"></div>
           <button class="btnIA" id="startSignal">ATIVAR</button>
+        </div>
       </div>
-  </div>
 
-    <div class="analise">
-      <h3 id="sinal">I.A DESATIVADA</h3>
-    </div>
+      <div class="analise">
+        <h3 id="sinal">I.A DESATIVADA</h3>
+      </div>
 
-
-    <div class="container">
-      <!-- <h1>BULLTRADE</h1> -->
-      <!-- <div class="dash">
+      <div class="container">
+        <!-- <h1>BULLTRADE</h1> -->
+        <!-- <div class="dash">
         <h3 id="txtCirculo">R$ 15.000,00</h3>
         <div class="circulo"></div>
       </div> -->
 
-      <div class="painel">
-        <div class="ativo">
-          ATIVO:
-          <p id="ativo">-</p>
+        <div class="painel">
+          <div class="ativo">
+            ATIVO:
+            <p id="ativo">-</p>
+          </div>
+
+          <div class="timeframe">
+            TIMEFRAME:
+            <p id="timeframe">-</p>
+          </div>
+
+          <div class="ordem">
+            ORDEM:
+            <p id="ordem">-</p>
+          </div>
+
+          <div class="horario">
+            HORÁRIO:
+            <p id="horario">-</p>
+          </div>
         </div>
 
-        <div class="timeframe">
-          TIMEFRAME:
-          <p id="timeframe">-</p>
-        </div>
-
-        <div class="ordem">
-          ORDEM:
-          <p id="ordem">-</p>
-        </div>
-
-        <div class="horario">
-          HORÁRIO:
-          <p id="horario">-</p>
-        </div>
-      </div>
-
-      <!-- <button onclick="generateSignal()" id="btnAnalisar" class="btnAnalisar">
+        <!-- <button onclick="generateSignal()" id="btnAnalisar" class="btnAnalisar">
         ANALISAR ENTRADA
       </button> -->
 
-      <a
-        id="btnAnalisar"
-        class="btnAnalisar"
-        target="_blank"
-        href="https://trade.bull-ex.com/register?aff=404504&aff_model=revenue&afftrack="
-      >
-        AGUARDANDO SINAL
-      </a>
+        <a
+          id="btnAnalisar"
+          class="btnAnalisar"
+          target="_blank"
+          href="https://trade.bull-ex.com/register?aff=404504&aff_model=revenue&afftrack="
+        >
+          AGUARDANDO SINAL
+        </a>
 
-      <div class="dashboard">
-        <div class="stats">
-          <div class="stat-box">
-            <p>Usuários Online</p>
-            <p>1.248 <span>traders</span></p>
+        <div class="dashboard">
+          <div class="stats">
+            <div class="stat-box">
+              <p>Usuários Online</p>
+              <p><strong id="random-users">-</strong> <span>traders</span></p>
+            </div>
+            <div class="stat-box">
+              <p>Sinais Gerados</p>
+              <p><strong id="random-signals">-</strong> <span>hoje</span></p>
+            </div>
           </div>
-          <div class="stat-box">
-            <p>Sinais Gerados</p>
-            <p>8.245 <span>hoje</span></p>
+          <div class="trading-academy">
+            <img src="../static/images/logo.png" alt="Trading Academy" />
+            <div class="academy-info">
+              <h3>Trading Academy</h3>
+              <p>5 aulas · 8795 alunos</p>
+              <a href="{{ url_for('academy') }}" class="button"
+                >Começar Agora</a
+              >
+            </div>
           </div>
         </div>
-        <div class="trading-academy">
-          <img src="../static/images/logo.png" alt="Trading Academy" />
-          <div class="academy-info">
-            <h3>Trading Academy</h3>
-            <p>5 aulas · 8795 alunos</p>
-            <a href="{{ url_for('academy') }}" class="button">Começar Agora</a>
-          </div>
-        </div>
+
+        <!-- <h2>Sinais Recentes:</h2>
+      <ul id="signals" class="signal-list"></ul> -->
       </div>
 
-      <!-- <h2>Sinais Recentes:</h2>
-      <ul id="signals" class="signal-list"></ul> -->
-    </div>
-
-    <!-- <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
+      <!-- <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
     </div> -->
-    <!-- <iframe
+      <!-- <iframe
       src="https://trade.bull-ex.com/traderoom"
       sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
       allow="fullscreen; autoplay; clipboard-write"
     ></iframe> -->
-
-  </div>
-
+    </div>
 
     <footer>
       <nav>
-        <a style="color: var(--primary-color);" href=""><img src="../static/images/house-chimney-user-ativo.png" alt="">Home</a>
-          <a href="{{ url_for('academy') }}"><img src="../static/images/graduation-cap.png" alt="">Academy</a>
-          <a class="live" href="#"><img src="../static/images/signal-stream.png" alt="">Lives</a>
-          <a href="{{ url_for('news') }}"><img src="../static/images/newspaper.png" alt="">News</a>
-          <a href="{{ url_for('historico') }}"><img src="../static/images/clock-future-past.png" alt="">Histórico</a>
+        <a style="color: var(--primary-color)" href=""
+          ><img
+            src="../static/images/house-chimney-user-ativo.png"
+            alt=""
+          />Home</a
+        >
+        <a href="{{ url_for('academy') }}"
+          ><img src="../static/images/graduation-cap.png" alt="" />Academy</a
+        >
+        <a class="live" href="#"
+          ><img src="../static/images/signal-stream.png" alt="" />Lives</a
+        >
+        <a href="{{ url_for('news') }}"
+          ><img src="../static/images/newspaper.png" alt="" />News</a
+        >
+        <a href="{{ url_for('historico') }}"
+          ><img
+            src="../static/images/clock-future-past.png"
+            alt=""
+          />Histórico</a
+        >
       </nav>
-  </footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-
+      function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      document.getElementById('random-users').textContent = getRandomNumber(
+        40,
+        150
+      );
+      document.getElementById('random-signals').textContent = getRandomNumber(
+        200,
+        350
+      );
 
       document.addEventListener('keydown', function (event) {
         if (
@@ -154,9 +176,7 @@
       const bolinha = document.getElementById('sinal');
       const startBot = document.getElementById('startSignal');
 
-      const circleIA = document.querySelector(".circleIA");
-
-
+      const circleIA = document.querySelector('.circleIA');
 
       async function generateSignal() {
         await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -261,7 +281,7 @@
       let iaIniciada = false;
 
       // Adicionar evento ao botão para iniciar ou parar o processo
-  
+
       document
         .getElementById('startSignal')
         .addEventListener('click', function () {
@@ -271,15 +291,16 @@
             document
               .querySelector('.analise')
               .style.setProperty('--desligado', '#00bf63');
-              const waves = document.querySelectorAll(".wave");
-              waves[0].classList.add("waveativa");
-              waves[1].classList.add("waveativa");
-              waves[2].classList.add("waveativa");
+            const waves = document.querySelectorAll('.wave');
+            waves[0].classList.add('waveativa');
+            waves[1].classList.add('waveativa');
+            waves[2].classList.add('waveativa');
             startBot.style.backgroundColor = 'var(--primary-color)';
             startBot.style.boxShadow = '0 0 8px #02ff84';
             startBot.textContent = 'DESATIVAR';
-            circleIA.style.background = 'var(--primary-color)'
-            circleIA.style.boxShadow = '0 0 15px #02ff84, 0 0 30px var(--primary-color)'
+            circleIA.style.background = 'var(--primary-color)';
+            circleIA.style.boxShadow =
+              '0 0 15px #02ff84, 0 0 30px var(--primary-color)';
             generateSignal();
 
             iaIniciada = true;
