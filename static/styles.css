@@ -2,6 +2,7 @@
 
 @import 'home.css';
 @import 'academy.css';
+@import 'historico.css';
 
 :root {
   --desligado: red;

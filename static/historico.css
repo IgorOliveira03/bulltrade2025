@@ -1,0 +1,40 @@
+.dashboard-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    margin-bottom: 80px;
+}
+.history {
+    margin-top: 20px;
+    background: #161616;
+    padding: 15px;
+    border-radius: 10px;
+}
+.history-section {
+    margin-top: 15px;
+    padding: 5px 20px;
+ /* From https://css.glass */
+background: rgba(255, 255, 255, 0.1);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+h3, h4 {
+    color: #fff;
+}
+
+p {
+    font-size: 2rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+p img {
+    width: 30px;
+}

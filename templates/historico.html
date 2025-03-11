@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00bf63" />
+    <title>Histórico</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="shortcut icon" href="static/images/logo.png" type="image/x-icon"/>
+  </head>
+
+  <body>
+    <div class="imagembanner">
+      <header class="header">
+        <img src="../static/images/logo.png" alt="" />
+        <!-- <h1>BullTRADE</h1> -->
+
+        <div class="menu">
+          <a href="{{ url_for('logout') }}">SAIR</a>
+          <h4>Bem-Vindo, {{ nome }}!</h4>
+        </div>
+      </header>
+  
+
+    <div class="dashboard-container">
+        
+        <div class="history">
+            <h3>Histórico de Sinais</h3>
+            
+            <div class="history-section">
+                <h4>Hoje - <span id="today-date"></span></h4>
+                <p id="today-history"> <img src="../static/images/batimento-cardiaco.png" alt="">R$ 1.467</p>
+            </div>
+            
+            <div class="history-section">
+                <h4>Ontem - <span id="yesterday-date"></span></h4>
+                <p id="yesterday-history"><img src="../static/images/batimento-cardiaco.png" alt=""> R$ 1.266</p>
+            </div>
+            
+            <div class="history-section">
+                <h4>Últimos 7 Dias</h4>
+                <p id="week-history"><img src="../static/images/batimento-cardiaco.png" alt=""> R$ 10.197</p>
+            </div>
+            
+            <div class="history-section">
+                <h4>Últimos 30 Dias</h4>
+                <p id="month-history"><img src="../static/images/batimento-cardiaco.png" alt=""> R$ 42.302</p>
+            </div>
+        </div>
+    </div>
+
+ 
+
+    <footer>
+        <nav>
+            <a href="{{ url_for('home') }}"><img src="../static/images/house-chimney-user.png" alt="">Home</a>
+            <a href="{{ url_for('academy') }}"><img src="../static/images/graduation-cap.png" alt="">Academy</a>
+            <a class="live" href="#"><img src="../static/images/signal-stream.png" alt="">Lives</a>
+            <a href="#"><img src="../static/images/newspaper.png" alt="">News</a>
+            <a style="color: var(--primary-color);" href=""><img src="../static/images/clock-future-past-ativo.png" alt="">Histórico</a>
+        </nav>
+    </footer>
+</div>
+
+
+
+
+    <script>
+        function formatDate(daysAgo) {
+            let date = new Date();
+            date.setDate(date.getDate() - daysAgo);
+            return date.toLocaleDateString('pt-BR');
+        }
+
+        document.getElementById("today-date").textContent = formatDate(0);
+        document.getElementById("yesterday-date").textContent = formatDate(1);
+        
+        function refreshData() {
+            fetch("/get_signals")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("total-signals").textContent = data.total;
+                    document.getElementById("today-signals").textContent = data.today;
+                    document.getElementById("today-history").textContent = data.todayHistory.length > 0 ? data.todayHistory : "Nenhum sinal gerado ainda";
+                    document.getElementById("yesterday-history").textContent = data.yesterdayHistory.length > 0 ? data.yesterdayHistory : "Nenhum sinal gerado ainda";
+                    document.getElementById("week-history").textContent = data.weekHistory.length > 0 ? data.weekHistory : "Nenhum sinal gerado ainda";
+                    document.getElementById("month-history").textContent = data.monthHistory.length > 0 ? data.monthHistory : "Nenhum sinal gerado ainda";
+                });
+        }
+    </script>
+    
+  </body>
+</html>
