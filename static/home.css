@@ -19,8 +19,8 @@
 
 .circleIA {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   background: radial-gradient(circle, rgb(202, 6, 6), #ff0202);
   display: flex;
   border-radius: 50%;
@@ -121,7 +121,7 @@ from {
   background-color: rgb(202, 6, 6);
   color: #fff;
   padding: 5px 15px;
-  font-size: 16px;
+  font-size: 13px;
   border-radius: 30px;
   cursor: pointer;
   transition: 0.3s;
