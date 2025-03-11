@@ -162,11 +162,11 @@ function updateBar() {
             document.getElementById("green-bar").style.width = greenPercentage + "%";
             document.getElementById("red-bar").style.width = redPercentage + "%";
             
-            let progressText = `Verde: ${greenPercentage}% | Vermelho: ${redPercentage}%`;
+            let progressText = `WIN ${greenPercentage}% | LOSS ${redPercentage}%`;
             document.getElementById("progress-text").innerText = progressText;
 
             // Ajusta a cor do texto dependendo do tamanho do verde
-            document.getElementById("progress-text").style.color = greenPercentage < 75 ? "black" : "white";
+            document.getElementById("progress-text").style.color = greenPercentage < 75 ? "black" : "black";
         }
 
     
