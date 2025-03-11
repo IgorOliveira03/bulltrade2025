@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-.containerIA {
+/* .containerIA {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +57,7 @@
   background: #00bf63;
   color: #0a0a0a;
   box-shadow: 0 0 15px #00bf63;
-}
+} */
 
 
 /* Container */
@@ -159,8 +159,8 @@
 h3 {
   font-size: 0.8rem;
   text-shadow: 0 0 1px #fff;
-  /* background-color: #000;
-  border: 1px solid var(--primary-color); */
+  background-color: #000;
+  border: 1px solid var(--primary-color);
   border-radius: 9px;
   padding: 13px 20px;
 }
