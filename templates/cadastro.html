@@ -121,6 +121,10 @@ body {
             margin-bottom: 10px;
         }
 
+        .facaLogin {
+          color: #fff;
+        }
+
     </style>
 </head>
 <body>
@@ -148,6 +152,6 @@ body {
         {% endif %}
     {% endwith %}
 
-    <p>Já tem uma conta? <a href="{{ url_for('login') }}">Faça login aqui</a>.</p>
+    <p>Já tem uma conta? <a class="facaLogin" href="{{ url_for('login') }}">Faça login aqui</a>.</p>
 </body>
 </html>
