@@ -1,15 +1,15 @@
 .dashboard-container {
-    width: 90%;
+    width: 100%;
     max-width: 800px;
     margin: 0px auto 20px auto;
-    padding: 20px;
+    padding: 0px;
     margin-bottom: 80px;
 }
 .history {
     margin-top: 20px;
     background: #161616;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 .history-section {
     margin-top: 15px;

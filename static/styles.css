@@ -22,6 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0 auto;
   overflow-x: hidden;
   /* Impede seleção de texto */
   user-select: none;
