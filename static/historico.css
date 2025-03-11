@@ -27,7 +27,7 @@ h3, h4 {
     color: #fff;
 }
 
-#today-history {
+.historico-valor {
     font-size: 2rem;
     color: var(--primary-color);
     display: flex;
@@ -35,6 +35,6 @@ h3, h4 {
     gap: 10px;
 }
 
-#today-history img {
+.historico-valor img {
     width: 30px;
 }
