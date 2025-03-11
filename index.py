@@ -83,6 +83,11 @@ def academy():
     nome_usuario = session.get('nome')  # Obtém o usuário da sessão
     return render_template('academy.html', nome=nome_usuario)
 
+@app.route('/news')
+def news():
+    nome_usuario = session.get('nome')  # Obtém o usuário da sessão
+    return render_template('news.html', nome=nome_usuario)
+
 @app.route('/historico')
 def historico():
     nome_usuario = session.get('nome')  # Obtém o usuário da sessão

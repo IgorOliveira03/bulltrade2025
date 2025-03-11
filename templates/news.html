@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00bf63" />
+    <title>Histórico</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link
+      rel="shortcut icon"
+      href="static/images/logo.png"
+      type="image/x-icon"
+    />
+
+
+    <style>
+        .titulo-news {
+            background-color: #161616;
+            width: 90%;
+            height: 600px;
+            max-width: 900px;
+            margin: 20px;
+            margin-bottom: 100px;
+            border-radius: 20px;
+        }
+
+        .titulo-news h1 {
+            font-size: 1.5rem;
+            margin: 20px;
+        }
+
+        .titulo-news p {
+            margin: 20px;
+            color: #ccc;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="imagembanner">
+      <header class="header">
+        <img src="../static/images/logo.png" alt="" />
+        <!-- <h1>BullTRADE</h1> -->
+
+        <div class="menu">
+          <a href="{{ url_for('logout') }}">SAIR</a>
+          <h4>Bem-Vindo, {{ nome }}!</h4>
+        </div>
+      </header>
+
+
+      <div class="titulo-news">
+        <h1>Eventos Econômicos</h1>
+
+        <p>Acompanhe os principais eventos econômicos do mercado</p>
+
+        <iframe src="https://br.widgets.investing.com/top-cryptocurrencies?theme=darkTheme"  frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe>
+      </div>
+
+
+
+
+
+      <footer>
+        <nav>
+          <a href="{{ url_for('home') }}"
+            ><img src="../static/images/house-chimney-user.png" alt="" />Home</a
+          >
+          <a href="{{ url_for('academy') }}"
+            ><img src="../static/images/graduation-cap.png" alt="" />Academy</a
+          >
+          <a class="live" href="#"
+            ><img src="../static/images/signal-stream.png" alt="" />Lives</a
+          >
+          <a href="#"
+            ><img src="../static/images/newspaper.png" alt="" />News</a
+          >
+          <a style="color: var(--primary-color)" href=""
+            ><img
+              src="../static/images/clock-future-past-ativo.png"
+              alt=""
+            />Histórico</a
+          >
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
