@@ -18,6 +18,26 @@ assets = ["EUR/JPY", "USD/BRL", "EUR/USD", "BTC/USD", "EUR/GBP", "AUD/CAD", "USD
 directions = ["COMPRA", "VENDA"]
 durations = ["M1", "M3", "M5"]  # Em minutos
 
+@app.route('/cadastro', methods=['GET', 'POST'])
+def cadastro():
+    if request.method == 'POST':
+        usuario = request.form['usuario'].lower()
+        senha = request.form['senha']
+        nome = request.form['nome']
+
+        # Verifica se o usuário já existe
+        for credenciais in USUARIOS_VALIDOS:
+            if credenciais['usuario'] == usuario:
+                flash('Usuário já cadastrado!')
+                return redirect(url_for('cadastro'))
+
+        # Adiciona o novo usuário à lista de usuários válidos
+        novo_usuario = {"usuario": usuario, "senha": senha, "nome": nome}
+        USUARIOS_VALIDOS.append(novo_usuario)
+        flash('Cadastro realizado com sucesso!')
+        return redirect(url_for('login'))
+
+    return render_template('cadastro.html')
 
 @app.route('/')
 def login():

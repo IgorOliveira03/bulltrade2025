@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+
+    <style>
+
+body {
+            font-family: "Jost", serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            background-color: #00bf63;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow-y: hidden;
+            margin: 0;
+            padding: 0;
+            /* Impede seleção de texto */
+            user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        form {
+            width: 80%;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        form img {
+            width: 300px;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+
+        form h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+            color: #010004;
+            text-transform: uppercase;
+        }
+
+        form .usuario,
+        form .senha {
+            text-align: left;
+            color: #fff;
+        }
+
+        form .usuario input,
+        form .senha input {
+            margin-top: 5px;
+        }
+
+        form.usuario label,
+        form .senha label {
+            font-weight: 700;
+        }
+
+        form input[type="text"],
+        form input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            background-color: #00bf63;
+            border: 2px solid #000;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="password"]:focus {
+            border-color: #077d44;
+            /* Muda a cor da borda para um tom de laranja */
+            outline: none;
+            /* Remove o contorno padrão (se desejar) */
+        }
+
+        form input[type="text"]::placeholder,
+        form input[type="password"]::placeholder {
+            color: #f7f7f7;
+        }
+
+        
+
+        form button {
+            width: 200px;
+            padding: 10px;
+            background-color: #077d44;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        form button:hover {
+            background-color: #077d11;
+            ;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Usuário</h1>
+    <form method="POST" action="{{ url_for('cadastro') }}">
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <p>Já tem uma conta? <a href="{{ url_for('login') }}">Faça login aqui</a>.</p>
+</body>
+</html>
