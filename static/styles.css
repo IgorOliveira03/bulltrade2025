@@ -103,9 +103,6 @@ footer nav a {
   color: #ccc;
 }
 
-footer nav a:hover {
-  color: var(--primary-color);
-}
 
 footer nav a img {
   width: 17px;
