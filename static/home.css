@@ -20,24 +20,59 @@
   position: relative;
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle, var(--primary-color), #02ff84);
+  background: radial-gradient(circle, rgb(202, 6, 6), #ff0202);
   display: flex;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 15px #02ff84, 0 0 30px var(--primary-color);
+  box-shadow: 0 0 15px #ff0202, 0 0 30px rgb(202, 6, 6);
   animation: glow 1s infinite linear alternate ;
 }
 
+@keyframes techWave {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+      border-color: rgb(202, 6, 6);
+  }
+  100% {
+      transform: scale(2.5);
+      opacity: 0;
+      border-color: rgba(0, 255, 255, 0);
+  }
+}
 
-@keyframes glow {
+.wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid ;
+  animation: techWave 2.5s infinite ease-out;
+  opacity: 0;
+}
+
+.wave:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.wave:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.wave:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+
+/* @keyframes glow {
 from {
   box-shadow: 0 0 20px var(--primary-color);
 }
  to {
   box-shadow: 0 0 40px var(--primary-color);
  }
-}
+} */
 
 
 

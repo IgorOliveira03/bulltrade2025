@@ -154,6 +154,9 @@
       const bolinha = document.getElementById('sinal');
       const startBot = document.getElementById('startSignal');
 
+      const circleIA = document.querySelector(".circleIA");
+
+
 
       async function generateSignal() {
         await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -275,6 +278,8 @@
             startBot.style.backgroundColor = 'var(--primary-color)';
             startBot.style.boxShadow = '0 0 8px #02ff84';
             startBot.textContent = 'DESATIVAR';
+            circleIA.style.background = 'var(--primary-color)'
+            circleIA.style.boxShadow = '0 0 15px #02ff84, 0 0 30px var(--primary-color)'
             generateSignal();
 
             iaIniciada = true;
