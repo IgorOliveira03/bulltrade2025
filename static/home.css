@@ -21,49 +21,25 @@
   width: 150px;
   height: 150px;
   background: radial-gradient(circle, var(--primary-color), #02ff84);
-  border-radius: 50%;
   display: flex;
+  border-radius: 50%;
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 15px #02ff84, 0 0 30px var(--primary-color);
-  border-radius: 50%;
-  animation: glow 1.3s linear infinite alternate;
+  animation: glow 1s infinite linear alternate ;
 }
 
+
 @keyframes glow {
-  0% {
-    box-shadow: 0 0 10px #02ff84, 0 0 20px var(--primary-color);
-    border-radius: 50%;
-  }
-  15% {
-    box-shadow: 0 0 20px #02ff84, 0 0 40px var(--primary-color);
-    border-radius: 20% 50% 50% 50%;
-  }
-  30% {
-    box-shadow: 0 0 20px #02ff84, 0 0 40px var(--primary-color);
-    border-radius: 50% 20% 50% 50%;
-  }
-  45% {
-    box-shadow: 0 0 20px #02ff84, 0 0 40px var(--primary-color);
-    border-radius: 50% 20% 20% 50%;
-  }
-  60% {
-    box-shadow: 0 0 20px #02ff84, 0 0 40px var(--primary-color);
-    border-radius: 50% 50% 20% 20%;
-  }
-  75% {
-    box-shadow: 0 0 20px #02ff84, 0 0 40px var(--primary-color);
-    border-radius: 20% 50% 50% 20%;
-  }
-  90% {
-    box-shadow: 0 0 20px #02ff84, 0 0 40px var(--primary-color);
-    border-radius: 50%;
-  }
-  100% {
-    box-shadow: 0 0 20px #02ff84, 0 0 40px var(--primary-color);
-    border-radius: 50%;
-  }
+from {
+  box-shadow: 0 0 20px var(--primary-color);
 }
+ to {
+  box-shadow: 0 0 40px var(--primary-color);
+ }
+}
+
+
 
 /* Ondas animadas */
 .wave {
@@ -115,6 +91,7 @@
   transition: 0.3s;
   z-index: 2;
   position: relative;
+
 }
 
 .btnIA:hover {
