@@ -33,7 +33,7 @@
           <div class="wave"></div>
           <div class="wave"></div>
           <div class="wave"></div>
-          <button class="btnIA" id="startSignal">Iniciar IA</button>
+          <button class="btnIA" id="startSignal">OFF</button>
       </div>
   </div>
 
@@ -266,9 +266,9 @@
             document
               .querySelector('.analise')
               .style.setProperty('--desligado', '#00bf63');
-            startBot.style.backgroundColor = 'red';
-            startBot.style.boxShadow = '0 0 8px red';
-            startBot.textContent = 'PARAR I.A';
+            startBot.style.backgroundColor = 'var(--primary-color)';
+            startBot.style.boxShadow = '0 0 8px #02ff84';
+            startBot.textContent = 'ON';
             generateSignal();
 
             iaIniciada = true;
