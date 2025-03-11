@@ -13,6 +13,19 @@ USUARIOS_VALIDOS = [
     {"usuario": "joao@gmail.com", "senha": "456", "nome": "João"}
 ]
 
+@app.route('/usuarios')
+def usuarios():
+    if 'usuario' not in session:
+        flash('Você precisa estar logado para acessar.')
+        return redirect(url_for('login'))
+
+    # Verifica se o usuário logado é um administrador (opcional)
+    if session['usuario'] != "bullex@gmail.com":
+        flash('Acesso negado. Somente o administrador pode visualizar os usuários.')
+        return redirect(url_for('home'))
+
+    return render_template('usuarios.html', usuarios=USUARIOS_VALIDOS)
+
 # Listas predefinidas para geração de sinais aleatórios
 assets = ["EUR/JPY", "USD/BRL", "EUR/USD", "BTC/USD", "EUR/GBP", "AUD/CAD", "USD/CHF", "GBP/USD", "PEN/USD", "NZD/USD", "GBP/JPY", "TRUMP Coin"]
 directions = ["COMPRA", "VENDA"]
