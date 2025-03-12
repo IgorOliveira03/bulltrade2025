@@ -2,7 +2,7 @@
   background-image: url(../static/images/blur1.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   width: 100%;
   overflow: hidden;
   display: flex;
