@@ -46,22 +46,30 @@
   width: 300px;
   padding: 20px;
   background: rgba(0, 0, 0, 0);
-  border: 1px solid transparent;
+  border: 1px solid var(--primary-color);
   border-radius: 10px;
-  box-shadow: 0 0 55px var(--primary-color);
+  box-shadow: 0 0 35px var(--primary-color);
   text-align: center;
   z-index: 9999;
   animation: borderAnimation 2s infinite linear;
 }
 
-@keyframes borderAnimation {
+/* @keyframes borderAnimation {
   0% { border-color: cyan; }
   25% { border-color: magenta; }
   50% { border-color: yellow; }
   75% { border-color: lime; }
   100% { border-color: cyan;  }
-} 
+}  */
 
+
+@keyframes borderAnimation {
+  0% { box-shadow: 0 0 20px cyan; }
+  25% { box-shadow: 0 0 30px magenta; }
+  50% { box-shadow: 0 0 20px yellow; }
+  75% { box-shadow: 0 0 30px lime; }
+  100% { box-shadow: 0 0 20px cyan;  }
+} 
 
 .progress-bar-container {
   width: 100%;
