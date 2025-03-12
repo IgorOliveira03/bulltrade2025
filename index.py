@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 import random 
 from datetime import datetime, timedelta
 
+
 app = Flask(__name__)
 app.secret_key = 'chave_secreta'  # Necessário para usar sessões
 
