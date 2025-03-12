@@ -417,6 +417,7 @@ button:hover {
   overflow: hidden;
   margin: 0px auto;
   display: flex;
+  margin: -15px 0;
 }
 
 .progress-green, .progress-red {
