@@ -223,35 +223,37 @@ from {
 }
 
 .boxshadowCompra {
-  animation: boxShadowCompra 1s infinite ease;
+  box-shadow: inset 0 0 25px rgba(0, 191, 99, .7);
+  animation: boxShadowCompra 1s infinite ease-in-out;
 }
 
 .boxshadowVenda {
-  animation: boxShadowVenda 1s infinite ease;
+  animation: boxShadowVenda 1s infinite ease-in-out;
+  box-shadow: inset 0 0 25px rgba(191, 0, 20, .7);
 }
 
 
 @keyframes boxShadowCompra {
   0% {
-    box-shadow: inset 0 0 35px rgba(0, 191, 99, .7);
-  }
-  50% {
     box-shadow: inset 0 0 25px rgba(0, 191, 99, .7);
   }
-  1000% {
+  50% {
     box-shadow: inset 0 0 35px rgba(0, 191, 99, .7);
+  }
+  1000% {
+    box-shadow: inset 0 0 25px rgba(0, 191, 99, .7);
   }
 }
 
 @keyframes boxShadowVenda {
   0% {
-    box-shadow: inset 0 0 35px rgba(191, 0, 20, .7);
-  }
-  50% {
     box-shadow: inset 0 0 25px rgba(191, 0, 20, .7);
   }
-  1000% {
+  50% {
     box-shadow: inset 0 0 35px rgba(191, 0, 20, .7);
+  }
+  1000% {
+    box-shadow: inset 0 0 25px rgba(191, 0, 20, .7);
   }
 }
 
