@@ -176,7 +176,7 @@ document.getElementById("startSignal").addEventListener("click", function() {
             let popupContainer = document.getElementById("popupContainer");
             let txtpopup = document.getElementById("txtpopup")
             popupContainer.style.display = "flex";
-            
+             txtpopup.textContent = "Desativando Sistema"
             function fillBar(bar, duration, callback) {
                 let width = 0;
                 let interval = setInterval(() => {
