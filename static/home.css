@@ -415,7 +415,7 @@ button:hover {
   background-color: #141422;
   border-radius: 15px;
   overflow: hidden;
-  margin: 20px auto;
+  margin: 0px auto;
   display: flex;
 }
 
