@@ -34,18 +34,26 @@
         </div>
       </div>
 
-
-    <div id="popupContainer" class="popup-container">
-      <div class="container-video">
-        <video src="../static/video.mp4" autoplay loop muted></video>
-      </div>
-        <div id="popup" class="popup">
-            <p id="txtpopup">Desativando sistema</p>
-            <div class="progress-bar-container"><img src="../static/images/logo.png" style="width: 25px;" alt=""><div id="bar1" class="progress-bar bar1"></div></div>
-            <div class="progress-bar-container"><img src="../static/images/logo.png" style="width: 25px;" alt=""><div id="bar2" class="progress-bar bar2"></div></div>
-            <div class="progress-bar-container"><img src="../static/images/logo.png" style="width: 25px;" alt=""><div id="bar3" class="progress-bar bar3"></div></div>
+      <div id="popupContainer" class="popup-container">
+        <div class="container-video">
+          <video src="../static/video.mp4" autoplay loop muted></video>
         </div>
-    </div>
+        <div id="popup" class="popup">
+          <p id="txtpopup">Desativando sistema</p>
+          <div class="progress-bar-container">
+            <img src="../static/images/logo.png" style="width: 25px" alt="" />
+            <div id="bar1" class="progress-bar bar1"></div>
+          </div>
+          <div class="progress-bar-container">
+            <img src="../static/images/logo.png" style="width: 25px" alt="" />
+            <div id="bar2" class="progress-bar bar2"></div>
+          </div>
+          <div class="progress-bar-container">
+            <img src="../static/images/logo.png" style="width: 25px" alt="" />
+            <div id="bar3" class="progress-bar bar3"></div>
+          </div>
+        </div>
+      </div>
 
       <div class="analise">
         <h3 id="sinal">I.A DESATIVADA</h3>
@@ -84,18 +92,17 @@
         ANALISAR ENTRADA
       </button> -->
 
-      <h4>PROBABILIDADE</h4>
-      <div class="progress-container">
-        <div class="progress-green" id="green-bar">
+        <h4>PROBABILIDADE</h4>
+        <div class="progress-container">
+          <div class="progress-green" id="green-bar">
             <span id="green-text"></span>
-        </div>
-        <div class="progress-red" id="red-bar">
+          </div>
+          <div class="progress-red" id="red-bar">
             <span id="red-text"></span>
+          </div>
         </div>
-    </div>
-  
-      <p id="percentage-text"></p>
-  
+
+        <p id="percentage-text"></p>
 
         <a
           id="btnAnalisar"
@@ -172,283 +179,297 @@
 
     <script>
 
-document.getElementById("startSignal").addEventListener("click", function() {
-            let popupContainer = document.getElementById("popupContainer");
-            let txtpopup = document.getElementById("txtpopup")
-            popupContainer.style.display = "flex";
-            function fillBar(bar, duration, callback) {
-              let width = 0;
-              let interval = setInterval(() => {
-                if (width >= 100) {
-                  clearInterval(interval);
-                  if (callback) callback();
-                } else {
-                  width++;
-                  bar.style.width = width + "%";
+window.addEventListener("beforeunload", (event) => {
+
+   // Avisar o usuário antes de sair (opcional)
+   event.preventDefault();
+    event.returnValue = ""; // Necessário para alguns navegadores
+});
+
+
+      document.getElementById("startSignal").addEventListener("click", function() {
+     
+                  let popupContainer = document.getElementById("popupContainer");
+                  let txtpopup = document.getElementById("txtpopup")
+                  popupContainer.style.display = "flex";
+
+
+                  function fillBar(bar, duration, callback) {
+                    let width = 0;
+                    let interval = setInterval(() => {
+                      if (width >= 100) {
+                        clearInterval(interval);
+                        if (callback) callback();
+                      } else {
+                        width++;
+                        bar.style.width = width + "%";
+                      }
+                    }, duration / 100);
+
+                  }
+                  
+                  txtpopup.textContent = "Analisando mercado"
+                  fillBar(document.getElementById("bar1"), 3500, () => {
+                    txtpopup.textContent = "Analisando tendências"
+                      fillBar(document.getElementById("bar2"), 3500, () => {
+                        txtpopup.textContent = "Analisando probabilidades"
+                          fillBar(document.getElementById("bar3"), 3500, () => {
+                            txtpopup.textContent = "Analise concluída"
+                              setTimeout(() => {
+                                  popupContainer.style.display = "none";
+                                  document.getElementById("bar1").style.width = "0%";
+                                  document.getElementById("bar2").style.width = "0%";
+                                  document.getElementById("bar3").style.width = "0%";
+                              }, 1000);
+                          });
+                      });
+                  });
+              });
+
+
+      function updateBar() {
+                  let greenPercentage = Math.floor(Math.random() * 41) + 60; // Valor entre 60% e 100%
+                  let redPercentage = 100 - greenPercentage; // O restante é vermelho
+
+                  let greenBar = document.getElementById("green-bar");
+                  let redBar = document.getElementById("red-bar");
+                  let greenText = document.getElementById("green-text");
+                  let redText = document.getElementById("red-text");
+
+                  greenBar.style.width = greenPercentage + "%";
+                  redBar.style.width = redPercentage + "%";
+
+                  greenText.innerText = greenPercentage + "%";
+                  redText.innerText = redPercentage > 0 ? redPercentage + "%" : "";
+
+                  // Se a parte vermelha for muito pequena, esconde o texto para evitar sobreposição
+                  redText.style.display = redPercentage < 10 ? "none" : "block";
+              }
+
+
+
+
+            function getRandomNumber(min, max) {
+              return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            document.getElementById('random-users').textContent = getRandomNumber(
+              40,
+              150
+            );
+            document.getElementById('random-signals').textContent = getRandomNumber(
+              200,
+              350
+            );
+
+            document.addEventListener('keydown', function (event) {
+              if (
+                event.key === 'F12' ||
+                (event.ctrlKey && event.shiftKey && event.key === 'I')
+              ) {
+                event.preventDefault();
+              }
+            }); // desabilita o f12 e ctrl+i
+
+            document.addEventListener('contextmenu', function (event) {
+              event.preventDefault();
+            }); // desabilita o clique com botão direito
+
+            const pegarsinal = document.querySelector('.pegarsinal');
+
+            const btnAnalisar = document.querySelector('.btnAnalisar');
+            const bolinha = document.getElementById('sinal');
+            const startBot = document.getElementById('startSignal');
+
+            const circleIA = document.querySelector('.circleIA');
+
+
+            async function generateSignal() {
+              await new Promise((resolve) => setTimeout(resolve, 5000));
+
+              btnAnalisar.style.opacity = '.5';
+              btnAnalisar.style.pointerEvents = 'none';
+              bolinha.textContent = 'ANALISANDO';
+
+              await new Promise((resolve) => setTimeout(resolve, 3000));
+
+              bolinha.textContent = 'POSSÍVEL SINAL';
+
+              btnAnalisar.style.pointerEvents = 'none';
+              await new Promise((resolve) => setTimeout(resolve, 3000));
+
+              bolinha.textContent = 'OPERAÇÃO ANALISADA';
+              updateBar();
+              btnAnalisar.textContent = 'FAZER OPERAÇÃO';
+
+              btnAnalisar.style.backgroundColor = '#4CAF50';
+              btnAnalisar.style.opacity = '1';
+              btnAnalisar.style.pointerEvents = 'initial';
+
+              try {
+                const response = await fetch('/generate-random-signal');
+                const data = await response.json();
+                const alertMessage = document.getElementById('alert-message');
+
+                const ativo = document.getElementById('ativo');
+                const timeframe = document.getElementById('timeframe');
+                const ordem = document.getElementById('ordem');
+                const horario = document.getElementById('horario');
+
+                ativo.textContent = data['asset'];
+                ordem.textContent = data['direction'];
+                timeframe.textContent = data['duration'];
+
+                if (
+                  data['asset'] === 'TRUMP Coin' ||
+                  data['asset'] === 'Meta' ||
+                  data['asset'] === 'Google' ||
+                  data['asset'] === 'Tesla' ||
+                  data['asset'] === 'Apple' ||
+                  data['asset'] === 'Amazon' ||
+                  data['asset'] === 'Nike, Inc.' ||
+                  data['asset'] === "McDonald's" ||
+                  data['asset'] === 'Coca-Cola' ||
+                  data['asset'] === 'MELANIA Coin'
+                ) {
+                  timeframe.textContent = 'M1';
                 }
-              }, duration / 100);
-            }
-            txtpopup.textContent = "Analisando mercado"
-            fillBar(document.getElementById("bar1"), 3500, () => {
-              txtpopup.textContent = "Analisando tendências"
-                fillBar(document.getElementById("bar2"), 3500, () => {
-                  txtpopup.textContent = "Analisando probabilidades"
-                    fillBar(document.getElementById("bar3"), 3500, () => {
-                      txtpopup.textContent = "Analise concluída"
-                        setTimeout(() => {
-                            popupContainer.style.display = "none";
-                            document.getElementById("bar1").style.width = "0%";
-                            document.getElementById("bar2").style.width = "0%";
-                            document.getElementById("bar3").style.width = "0%";
-                        }, 1000);
-                    });
-                });
-            });
-        });
 
-function updateBar() {
-            let greenPercentage = Math.floor(Math.random() * 41) + 60; // Valor entre 60% e 100%
-            let redPercentage = 100 - greenPercentage; // O restante é vermelho
+                function updateTime() {
+                  const now = new Date();
+                  let hours = now.getHours();
+                  let minutes = now.getMinutes() + 1;
+                  let segundos = now.getSeconds();
 
-            let greenBar = document.getElementById("green-bar");
-            let redBar = document.getElementById("red-bar");
-            let greenText = document.getElementById("green-text");
-            let redText = document.getElementById("red-text");
+                  if (minutes >= 60) {
+                    minutes -= 60;
+                    hours += 1;
+                  }
+                  if (hours >= 24) {
+                    hours = 0;
+                  }
+                  if (segundos >= 59) {
+                    segundos = 0;
+                  }
 
-            greenBar.style.width = greenPercentage + "%";
-            redBar.style.width = redPercentage + "%";
+                  const formattedHours = String(hours).padStart(2, '0');
+                  const formattedMinutes = String(minutes).padStart(2, '0');
+                  const formattedSegundos = String(segundos).padStart(2, '0');
+                  horario.textContent = `${formattedHours}:${formattedMinutes}:${formattedSegundos}`;
+                }
 
-            greenText.innerText = greenPercentage + "%";
-            redText.innerText = redPercentage > 0 ? redPercentage + "%" : "";
+                updateTime();
+                fetchSignals();
+              } catch (error) {
+                const alertMessage = document.getElementById('alert-message');
+                alertMessage.textContent = 'Erro ao gerar sinal. Tente novamente.';
+                alertMessage.className = 'error';
+                alertMessage.style.display = 'block';
+                setTimeout(() => {
+                  alertMessage.style.display = 'none';
+                }, 4000);
+              }
 
-            // Se a parte vermelha for muito pequena, esconde o texto para evitar sobreposição
-            redText.style.display = redPercentage < 10 ? "none" : "block";
-        }
+              await new Promise((resolve) => setTimeout(resolve, 60000));
 
-    
+              bolinha.textContent = 'I.A INICIADA';
+              btnAnalisar.textContent = 'AGUARDANDO SINAL';
+              btnAnalisar.style.opacity = '.5';
+              btnAnalisar.style.pointerEvents = 'none';
 
+              await new Promise((resolve) => setTimeout(resolve, 5000));
+              btnAnalisar.style.backgroundColor = '#4CAF50';
 
-      function getRandomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-      document.getElementById('random-users').textContent = getRandomNumber(
-        40,
-        150
-      );
-      document.getElementById('random-signals').textContent = getRandomNumber(
-        200,
-        350
-      );
-
-      document.addEventListener('keydown', function (event) {
-        if (
-          event.key === 'F12' ||
-          (event.ctrlKey && event.shiftKey && event.key === 'I')
-        ) {
-          event.preventDefault();
-        }
-      }); // desabilita o f12 e ctrl+i
-
-      document.addEventListener('contextmenu', function (event) {
-        event.preventDefault();
-      }); // desabilita o clique com botão direito
-
-      const pegarsinal = document.querySelector('.pegarsinal');
-
-      const btnAnalisar = document.querySelector('.btnAnalisar');
-      const bolinha = document.getElementById('sinal');
-      const startBot = document.getElementById('startSignal');
-
-      const circleIA = document.querySelector('.circleIA');
-
-
-      async function generateSignal() {
-        await new Promise((resolve) => setTimeout(resolve, 5000));
-
-        btnAnalisar.style.opacity = '.5';
-        btnAnalisar.style.pointerEvents = 'none';
-        bolinha.textContent = 'ANALISANDO';
-
-        await new Promise((resolve) => setTimeout(resolve, 3000));
-
-        bolinha.textContent = 'POSSÍVEL SINAL';
-
-        btnAnalisar.style.pointerEvents = 'none';
-        await new Promise((resolve) => setTimeout(resolve, 3000));
-
-        bolinha.textContent = 'OPERAÇÃO ANALISADA';
-        updateBar();
-        btnAnalisar.textContent = 'FAZER OPERAÇÃO';
-
-        btnAnalisar.style.backgroundColor = '#4CAF50';
-        btnAnalisar.style.opacity = '1';
-        btnAnalisar.style.pointerEvents = 'initial';
-
-        try {
-          const response = await fetch('/generate-random-signal');
-          const data = await response.json();
-          const alertMessage = document.getElementById('alert-message');
-
-          const ativo = document.getElementById('ativo');
-          const timeframe = document.getElementById('timeframe');
-          const ordem = document.getElementById('ordem');
-          const horario = document.getElementById('horario');
-
-          ativo.textContent = data['asset'];
-          ordem.textContent = data['direction'];
-          timeframe.textContent = data['duration'];
-
-          if (
-            data['asset'] === 'TRUMP Coin' ||
-            data['asset'] === 'Meta' ||
-            data['asset'] === 'Google' ||
-            data['asset'] === 'Tesla' ||
-            data['asset'] === 'Apple' ||
-            data['asset'] === 'Amazon' ||
-            data['asset'] === 'Nike, Inc.' ||
-            data['asset'] === "McDonald's" ||
-            data['asset'] === 'Coca-Cola' ||
-            data['asset'] === 'MELANIA Coin'
-          ) {
-            timeframe.textContent = 'M1';
-          }
-
-          function updateTime() {
-            const now = new Date();
-            let hours = now.getHours();
-            let minutes = now.getMinutes() + 1;
-            let segundos = now.getSeconds();
-
-            if (minutes >= 60) {
-              minutes -= 60;
-              hours += 1;
-            }
-            if (hours >= 24) {
-              hours = 0;
-            }
-            if (segundos >= 59) {
-              segundos = 0;
+              // Aguarda 3 minutos antes de rodar novamente
+              setTimeout(generateSignal, 300000);
             }
 
-            const formattedHours = String(hours).padStart(2, '0');
-            const formattedMinutes = String(minutes).padStart(2, '0');
-            const formattedSegundos = String(segundos).padStart(2, '0');
-            horario.textContent = `${formattedHours}:${formattedMinutes}:${formattedSegundos}`;
-          }
+            // Variável de controle para verificar o estado da I.A
+            let iaIniciada = false;
 
-          updateTime();
-          fetchSignals();
-        } catch (error) {
-          const alertMessage = document.getElementById('alert-message');
-          alertMessage.textContent = 'Erro ao gerar sinal. Tente novamente.';
-          alertMessage.className = 'error';
-          alertMessage.style.display = 'block';
-          setTimeout(() => {
-            alertMessage.style.display = 'none';
-          }, 4000);
-        }
+            // Adicionar evento ao botão para iniciar ou parar o processo
 
-        await new Promise((resolve) => setTimeout(resolve, 60000));
-
-        bolinha.textContent = 'I.A INICIADA';
-        btnAnalisar.textContent = 'AGUARDANDO SINAL';
-        btnAnalisar.style.opacity = '.5';
-        btnAnalisar.style.pointerEvents = 'none';
-
-        await new Promise((resolve) => setTimeout(resolve, 5000));
-        btnAnalisar.style.backgroundColor = '#4CAF50';
-
-        // Aguarda 3 minutos antes de rodar novamente
-        setTimeout(generateSignal, 300000);
-      }
-
-      // Variável de controle para verificar o estado da I.A
-      let iaIniciada = false;
-
-      // Adicionar evento ao botão para iniciar ou parar o processo
-
-      document
-        .getElementById('startSignal')
-        .addEventListener('click', function () {
-          if (!iaIniciada) {
-            // Iniciar a I.A
-            bolinha.textContent = 'I.A INICIADA';
             document
-              .querySelector('.analise')
-              .style.setProperty('--desligado', '#00bf63');
-            const waves = document.querySelectorAll('.wave');
-            waves[0].classList.add('waveativa');
-            waves[1].classList.add('waveativa');
-            waves[2].classList.add('waveativa');
-            startBot.style.backgroundColor = 'var(--primary-color)';
-            startBot.style.boxShadow = '0 0 8px #02ff84';
-            startBot.textContent = 'DESATIVAR';
-            circleIA.style.background = 'var(--primary-color)';
-            circleIA.style.boxShadow =
-              '0 0 15px #02ff84, 0 0 30px var(--primary-color)';
-            generateSignal();
+              .getElementById('startSignal')
+              .addEventListener('click', function () {
+                if (!iaIniciada) {
+                  // Iniciar a I.A
+                  bolinha.textContent = 'I.A INICIADA';
+                  document
+                    .querySelector('.analise')
+                    .style.setProperty('--desligado', '#00bf63');
+                  const waves = document.querySelectorAll('.wave');
+                  waves[0].classList.add('waveativa');
+                  waves[1].classList.add('waveativa');
+                  waves[2].classList.add('waveativa');
+                  startBot.style.backgroundColor = 'var(--primary-color)';
+                  startBot.style.boxShadow = '0 0 8px #02ff84';
+                  startBot.textContent = 'DESATIVAR';
+                  circleIA.style.background = 'var(--primary-color)';
+                  circleIA.style.boxShadow =
+                    '0 0 15px #02ff84, 0 0 30px var(--primary-color)';
+                  generateSignal();
 
-            iaIniciada = true;
-          } else {
-            // Parar a I.A
-            document
-              .querySelector('.analise')
-              .style.setProperty('--desligado', '#ff0000');
-            startBot.style.backgroundColor = '#00bf63';
+                  iaIniciada = true;
+                } else {
+                  // Parar a I.A
+                  document
+                    .querySelector('.analise')
+                    .style.setProperty('--desligado', '#ff0000');
+                  startBot.style.backgroundColor = '#00bf63';
 
-            location.reload();
+                  location.reload();
 
-            // Aqui você pode adicionar lógica para parar a função generateSignal se necessário
-            // Exemplo: cancelando um intervalo ou algo relacionado
+                  // Aqui você pode adicionar lógica para parar a função generateSignal se necessário
+                  // Exemplo: cancelando um intervalo ou algo relacionado
 
-            iaIniciada = false;
-          }
-        });
+                  iaIniciada = false;
+                }
+              });
 
-      // Função para buscar sinais e atualizar a lista
-      async function fetchSignals() {
-        const response = await fetch('/get-signals');
-        const data = await response.json();
-        const signalList = document.getElementById('signals');
-        signalList.innerHTML = '';
+            // Função para buscar sinais e atualizar a lista
+            async function fetchSignals() {
+              const response = await fetch('/get-signals');
+              const data = await response.json();
+              const signalList = document.getElementById('signals');
+              signalList.innerHTML = '';
 
-        data.forEach((signal) => {
-          if (
-            signal['asset'] === 'TRUMP Coin' ||
-            signal['asset'] === 'Meta' ||
-            signal['asset'] === 'Google' ||
-            signal['asset'] === 'Tesla' ||
-            signal['asset'] === 'Apple' ||
-            signal['asset'] === 'Amazon' ||
-            signal['asset'] === 'Nike, Inc.' ||
-            signal['asset'] === "McDonald's" ||
-            signal['asset'] === 'Coca-Cola' ||
-            signal['asset'] === 'MELANIA Coin'
-          ) {
-            signal['duration'] = 'M1';
-          }
+              data.forEach((signal) => {
+                if (
+                  signal['asset'] === 'TRUMP Coin' ||
+                  signal['asset'] === 'Meta' ||
+                  signal['asset'] === 'Google' ||
+                  signal['asset'] === 'Tesla' ||
+                  signal['asset'] === 'Apple' ||
+                  signal['asset'] === 'Amazon' ||
+                  signal['asset'] === 'Nike, Inc.' ||
+                  signal['asset'] === "McDonald's" ||
+                  signal['asset'] === 'Coca-Cola' ||
+                  signal['asset'] === 'MELANIA Coin'
+                ) {
+                  signal['duration'] = 'M1';
+                }
 
-          const li = document.createElement('li');
+                const li = document.createElement('li');
 
-          li.textContent = `${signal['asset']}   -   ${signal['direction']}   -   ${signal['duration']} - ${signal['time_sent']}`;
-          signalList.prepend(li);
-        });
-      }
+                li.textContent = `${signal['asset']}   -   ${signal['direction']}   -   ${signal['duration']} - ${signal['time_sent']}`;
+                signalList.prepend(li);
+              });
+            }
 
-      setInterval(fetchSignals, 4000); // Atualizar a lista a cada 5 segundos
-      fetchSignals(); // Atualização inicial
+            setInterval(fetchSignals, 4000); // Atualizar a lista a cada 5 segundos
+            fetchSignals(); // Atualização inicial
 
-      function updateClock() {
-        let now = new Date();
-        let hours = now.getHours().toString().padStart(2, '0');
-        let minutes = now.getMinutes().toString().padStart(2, '0');
-        let seconds = now.getSeconds().toString().padStart(2, '0');
-        document.getElementById(
-          'clock'
-        ).innerText = `${hours}:${minutes}:${seconds}`;
-      }
-      setInterval(updateClock, 1000);
-      updateClock(); // Atualiza imediatamente sem esperar o intervalo
+            function updateClock() {
+              let now = new Date();
+              let hours = now.getHours().toString().padStart(2, '0');
+              let minutes = now.getMinutes().toString().padStart(2, '0');
+              let seconds = now.getSeconds().toString().padStart(2, '0');
+              document.getElementById(
+                'clock'
+              ).innerText = `${hours}:${minutes}:${seconds}`;
+            }
+            setInterval(updateClock, 1000);
+            updateClock(); // Atualiza imediatamente sem esperar o intervalo
     </script>
   </body>
 </html>
