@@ -223,13 +223,37 @@ from {
 }
 
 .boxshadowCompra {
-  box-shadow: inset 0 0 35px rgba(0, 191, 99, .7);
+  animation: boxShadowCompra 1s infinite ease;
 }
 
 .boxshadowVenda {
-  box-shadow: inset 0 0 35px rgba(191, 0, 20, .7);
+  animation: boxShadowVenda 1s infinite ease;
 }
 
+
+@keyframes boxShadowCompra {
+  0% {
+    box-shadow: inset 0 0 35px rgba(0, 191, 99, .7);
+  }
+  50% {
+    box-shadow: inset 0 0 25px rgba(0, 191, 99, .7);
+  }
+  1000% {
+    box-shadow: inset 0 0 35px rgba(0, 191, 99, .7);
+  }
+}
+
+@keyframes boxShadowVenda {
+  0% {
+    box-shadow: inset 0 0 35px rgba(191, 0, 20, .7);
+  }
+  50% {
+    box-shadow: inset 0 0 25px rgba(191, 0, 20, .7);
+  }
+  1000% {
+    box-shadow: inset 0 0 35px rgba(191, 0, 20, .7);
+  }
+}
 
 
 .analise {
