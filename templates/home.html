@@ -40,7 +40,7 @@
         <video src="../static/video.mp4" autoplay loop muted></video>
       </div>
         <div id="popup" class="popup">
-            <p id="txtpopup">Analisando o mercado...</p>
+            <p id="txtpopup">Analisando o mercado</p>
             <div class="progress-bar-container"><img src="../static/images/logo.png" style="width: 25px;" alt=""><div id="bar1" class="progress-bar bar1"></div></div>
             <div class="progress-bar-container"><img src="../static/images/logo.png" style="width: 25px;" alt=""><div id="bar2" class="progress-bar bar2"></div></div>
             <div class="progress-bar-container"><img src="../static/images/logo.png" style="width: 25px;" alt=""><div id="bar3" class="progress-bar bar3"></div></div>
@@ -172,7 +172,6 @@
 
     <script>
 
-
 document.getElementById("startSignal").addEventListener("click", function() {
             let popupContainer = document.getElementById("popupContainer");
             let txtpopup = document.getElementById("txtpopup")
@@ -262,6 +261,14 @@ function updateBar() {
       const startBot = document.getElementById('startSignal');
 
       const circleIA = document.querySelector('.circleIA');
+
+
+
+      window.addEventListener("beforeunload", (event) => {
+        clearInterval(generateSignal());
+      });
+
+
 
       async function generateSignal() {
         await new Promise((resolve) => setTimeout(resolve, 5000));
