@@ -179,52 +179,8 @@
 
     <script>
 
-window.addEventListener("beforeunload", (event) => {
 
-   // Avisar o usuário antes de sair (opcional)
-   event.preventDefault();
-    event.returnValue = ""; // Necessário para alguns navegadores
-});
-
-
-      document.getElementById("startSignal").addEventListener("click", function() {
      
-                  let popupContainer = document.getElementById("popupContainer");
-                  let txtpopup = document.getElementById("txtpopup")
-                  popupContainer.style.display = "flex";
-
-
-                  function fillBar(bar, duration, callback) {
-                    let width = 0;
-                    let interval = setInterval(() => {
-                      if (width >= 100) {
-                        clearInterval(interval);
-                        if (callback) callback();
-                      } else {
-                        width++;
-                        bar.style.width = width + "%";
-                      }
-                    }, duration / 100);
-
-                  }
-                  
-                  txtpopup.textContent = "Analisando mercado"
-                  fillBar(document.getElementById("bar1"), 3500, () => {
-                    txtpopup.textContent = "Analisando tendências"
-                      fillBar(document.getElementById("bar2"), 3500, () => {
-                        txtpopup.textContent = "Analisando probabilidades"
-                          fillBar(document.getElementById("bar3"), 3500, () => {
-                            txtpopup.textContent = "Analise concluída"
-                              setTimeout(() => {
-                                  popupContainer.style.display = "none";
-                                  document.getElementById("bar1").style.width = "0%";
-                                  document.getElementById("bar2").style.width = "0%";
-                                  document.getElementById("bar3").style.width = "0%";
-                              }, 1000);
-                          });
-                      });
-                  });
-              });
 
 
       function updateBar() {
@@ -284,6 +240,45 @@ window.addEventListener("beforeunload", (event) => {
 
 
             async function generateSignal() {
+
+              let popupContainer = document.getElementById("popupContainer");
+                  let txtpopup = document.getElementById("txtpopup")
+                  popupContainer.style.display = "flex";
+
+
+                  function fillBar(bar, duration, callback) {
+                    let width = 0;
+                    let interval = setInterval(() => {
+                      if (width >= 100) {
+                        clearInterval(interval);
+                        if (callback) callback();
+                      } else {
+                        width++;
+                        bar.style.width = width + "%";
+                      }
+                    }, duration / 100);
+
+                  }
+                  
+                  txtpopup.textContent = "Analisando mercado"
+                  fillBar(document.getElementById("bar1"), 3500, () => {
+                    txtpopup.textContent = "Analisando tendências"
+                      fillBar(document.getElementById("bar2"), 3500, () => {
+                        txtpopup.textContent = "Analisando probabilidades"
+                          fillBar(document.getElementById("bar3"), 3500, () => {
+                            txtpopup.textContent = "Analise concluída"
+                              setTimeout(() => {
+                                  popupContainer.style.display = "none";
+                                  document.getElementById("bar1").style.width = "0%";
+                                  document.getElementById("bar2").style.width = "0%";
+                                  document.getElementById("bar3").style.width = "0%";
+                              }, 1000);
+                          });
+                      });
+                  });
+
+
+
               await new Promise((resolve) => setTimeout(resolve, 5000));
 
               btnAnalisar.style.opacity = '.5';
