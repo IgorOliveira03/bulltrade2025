@@ -176,7 +176,7 @@ document.getElementById("startSignal").addEventListener("click", function() {
             let popupContainer = document.getElementById("popupContainer");
             let txtpopup = document.getElementById("txtpopup")
             popupContainer.style.display = "flex";
-             txtpopup.textContent = "Desativando Sistema"
+            txtpopup.textContent = "Desativando Sistema"
             function fillBar(bar, duration, callback) {
                 let width = 0;
                 let interval = setInterval(() => {
@@ -202,6 +202,7 @@ document.getElementById("startSignal").addEventListener("click", function() {
                             document.getElementById("bar2").style.width = "0%";
                             document.getElementById("bar3").style.width = "0%";
                         }, 1000);
+                        txtpopup.textContent = "Desativando sistema"
                     });
                 });
             });
