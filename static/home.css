@@ -67,7 +67,6 @@
 
 .progress-bar-container {
   width: 100%;
-
   border-radius: 5px;
   margin: 10px 0;
 }
@@ -355,7 +354,7 @@ h3 {
 
 /* Botão */
 .btnAnalisar {
-  background-color: var(--primary-color);
+  background-color: #02ff84;
   color: white;
   border: none;
   border-radius: 5px;
