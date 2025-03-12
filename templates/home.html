@@ -34,6 +34,17 @@
         </div>
       </div>
 
+      <video id="videopopup" class="background-video" autoplay loop muted>
+        <source src="../static/images/108813-681686688_tiny.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos em HTML5.
+    </video>
+    <div id="popup" class="popup">
+        <p>Analisando o mercado...</p>
+        <div class="progress-bar-container"><div id="bar1" class="progress-bar bar1"></div></div>
+        <div class="progress-bar-container"><div id="bar2" class="progress-bar bar2"></div></div>
+        <div class="progress-bar-container"><div id="bar3" class="progress-bar bar3"></div></div>
+    </div>
+
       <div class="analise">
         <h3 id="sinal">I.A DESATIVADA</h3>
       </div>
@@ -158,6 +169,41 @@
 
     <script>
 
+
+document.getElementById("startSignal").addEventListener("click", function() {
+            let popup = document.getElementById("popup");
+            let videopopup = document.getElementById("videopopup")
+            popup.style.display = "block";
+            videopopup.style.display = "block";
+            
+            function fillBar(bar, duration, callback) {
+                let width = 0;
+                let interval = setInterval(() => {
+                    if (width >= 100) {
+                        clearInterval(interval);
+                        if (callback) callback();
+                    } else {
+                        width++;
+                        bar.style.width = width + "%";
+                    }
+                }, duration / 100);
+            }
+            
+            fillBar(document.getElementById("bar1"), 3500, () => {
+                fillBar(document.getElementById("bar2"), 3500, () => {
+                    fillBar(document.getElementById("bar3"), 3500, () => {
+                        setTimeout(() => {
+                            popup.style.display = "none";
+                            videopopup.style.display = "none";
+                            document.getElementById("bar1").style.width = "0%";
+                            document.getElementById("bar2").style.width = "0%";
+                            document.getElementById("bar3").style.width = "0%";
+                        }, 1000);
+                    });
+                });
+            });
+        });
+
 function updateBar() {
             let greenPercentage = Math.floor(Math.random() * 41) + 60; // Valor entre 60% e 100%
             let redPercentage = 100 - greenPercentage; // O restante é vermelho
@@ -220,12 +266,12 @@ function updateBar() {
         btnAnalisar.style.pointerEvents = 'none';
         bolinha.textContent = 'ANALISANDO';
 
-        await new Promise((resolve) => setTimeout(resolve, 8000));
+        await new Promise((resolve) => setTimeout(resolve, 3000));
 
         bolinha.textContent = 'POSSÍVEL SINAL';
 
         btnAnalisar.style.pointerEvents = 'none';
-        await new Promise((resolve) => setTimeout(resolve, 8000));
+        await new Promise((resolve) => setTimeout(resolve, 3000));
 
         bolinha.textContent = 'OPERAÇÃO ANALISADA';
         updateBar();
