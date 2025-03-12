@@ -136,12 +136,6 @@
           </div>
         </div>
 
-        <!-- <h2>Sinais Recentes:</h2>
-      <ul id="signals" class="signal-list"></ul> -->
-      </div>
-
-      <!-- <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
-    </div> -->
       <!-- <iframe
       src="https://trade.bull-ex.com/traderoom"
       sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
@@ -238,12 +232,12 @@
 
             const circleIA = document.querySelector('.circleIA');
 
-
             async function generateSignal() {
 
               let popupContainer = document.getElementById("popupContainer");
                   let txtpopup = document.getElementById("txtpopup")
                   popupContainer.style.display = "flex";
+                  btnAnalisar.style.display = 'none';
 
 
                   function fillBar(bar, duration, callback) {
