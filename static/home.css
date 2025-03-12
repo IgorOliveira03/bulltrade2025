@@ -210,6 +210,14 @@ from {
   border: 1px solid var(--primary-color);
 }
 
+.boxshadowCompra {
+  box-shadow: inset 0 0 20px rgba(0, 191, 99, .6);
+}
+
+.boxshadowVenda {
+  box-shadow: inset 0 0 20px rgba(191, 0, 20, .6);
+}
+
 
 
 .analise {
