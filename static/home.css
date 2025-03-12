@@ -219,7 +219,24 @@ from {
   /* border: 1px solid #fff; */
   overflow: hidden;
   background-color: #000;
-  border: 1px solid var(--primary-color);
+  border: 1px solid rgba(0, 191, 99, .5);
+}
+
+.boxshadowInicio {
+  animation: boxshadowInicio 1s ease-in;
+  animation-iteration-count: 1;
+}
+
+@keyframes boxshadowInicio {
+  0% {
+    box-shadow: inset 0 0 0 var(--primary-color);
+  }
+  5% {
+    box-shadow: inset 0 0 30px var(--primary-color);
+  }
+  100% {
+    box-shadow: inset 0 0 0 var(--primary-color);
+  }
 }
 
 .boxshadowCompra {
@@ -313,7 +330,7 @@ h3 {
   font-size: 0.8rem;
   text-shadow: 0 0 1px #fff;
   background-color: #000;
-  border: 1px solid var(--primary-color);
+  border: 1px solid rgba(0, 191, 99, .5);
   border-radius: 9px;
   padding: 13px 20px;
 }

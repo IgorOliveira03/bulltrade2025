@@ -234,6 +234,13 @@
 
             async function generateSignal() {
 
+              const containerPrincipal = document.getElementById("containerPrincipal");
+              containerPrincipal.style.borderColor = "var(--primary-color)";
+              containerPrincipal.classList.add("boxshadowInicio");
+              bolinha.style.borderColor = "var(--primary-color)";
+
+              await new Promise((resolve) => setTimeout(resolve, 2000));
+
               let popupContainer = document.getElementById("popupContainer");
                   let txtpopup = document.getElementById("txtpopup")
                   popupContainer.style.display = "flex";
