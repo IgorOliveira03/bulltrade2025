@@ -51,7 +51,18 @@
   box-shadow: 0 0 55px var(--primary-color);
   text-align: center;
   z-index: 9999;
+  animation: borderAnimation 2s infinite linear;
 }
+
+@keyframes borderAnimation {
+  0% { border-color: cyan; }
+  25% { border-color: magenta; }
+  50% { border-color: yellow; }
+  75% { border-color: lime; }
+  100% { border-color: cyan; }
+} 
+
+
 .progress-bar-container {
   width: 100%;
 
