@@ -21,6 +21,10 @@
   justify-content: center;
   align-items: center;
   z-index: 998;
+  background-image: url(../static/images/bannerpopup3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .container-video {
@@ -34,6 +38,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: none;
 }
 
 .popup {
@@ -596,5 +601,30 @@ iframe {
     border: 1px solid #fff;
     border-radius: 10px;
     margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 1000px) {
+
+  .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 998;
+    background-image: url();
+
+  }
+
+  .container-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 }
