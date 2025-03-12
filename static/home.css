@@ -82,8 +82,8 @@
 
 .circleIA {
   position: relative;
-  width: 105px;
-  height: 105px;
+  width: 115px;
+  height: 115px;
   background: radial-gradient(circle, rgb(202, 6, 6), #ff0202);
   display: flex;
   border-radius: 50%;
@@ -412,9 +412,8 @@ button:hover {
   background-color: #141422;
   border-radius: 8px;
   overflow: hidden;
-  margin: 0px auto;
+  margin: -15px auto;
   display: flex;
-  margin: -15px 0;
 }
 
 .progress-green, .progress-red {
