@@ -139,3 +139,20 @@ footer nav .live img {
   width: 20px;
   animation: bounce 1s linear infinite;
 }
+
+
+
+ /* Estilizando a barra de rolagem */
+ ::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #222;
+}
+::-webkit-scrollbar-thumb {
+  background: #00bf63;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #009e53;
+}

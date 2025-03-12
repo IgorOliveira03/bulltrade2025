@@ -1,8 +1,8 @@
 .imagembanner {
-  background-image: url(../static/images/blur1.png);
+  background-image: url(../static/images/blur1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: bottom left;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -21,7 +21,7 @@
   justify-content: center;
   align-items: center;
   z-index: 998;
-  background-image: url(../static/images/blur1.png);
+  background-image: url(../static/images/blur1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,16 +52,9 @@
   box-shadow: 0 0 35px var(--primary-color);
   text-align: center;
   z-index: 9999;
-  animation: borderAnimation 2s infinite linear;
 }
 
-@keyframes borderAnimation {
-  0% { border-color: cyan; }
-  25% { border-color: magenta; }
-  50% { border-color: yellow; }
-  75% { border-color: lime; }
-  100% { border-color: cyan;  }
-}  
+
 
 
 
@@ -564,11 +557,11 @@ iframe {
     border-radius: 15px;
     padding: 0px 30px;
     margin: 0 0 50px 0;
-    width: 65%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 5px;
   }
 
   h1 {
@@ -611,6 +604,38 @@ iframe {
 }
 
 @media (min-width: 1000px) {
+
+  .circleIA {
+    width: 150px;
+    height: 150px;
+  }
+
+  .popup {
+    /* From https://css.glass */
+background: rgba(0, 0, 0, 0.7);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+border: 1px solid var(--primary-color);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+  }
+
+  .container-video video {
+    opacity: .9;
+    animation: videoopacity 12s ease;
+  }
+
+  @keyframes videoopacity {
+    0% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
   .popup-container {
     position: fixed;
