@@ -34,15 +34,17 @@
         </div>
       </div>
 
-      <video id="videopopup" class="background-video" autoplay loop muted>
-        <source src="../static/images/108813-681686688_tiny.mp4" type="video/mp4">
+      <video id="videopopup" class="video-background" autoplay loop muted>
+        <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
         Seu navegador não suporta vídeos em HTML5.
     </video>
-    <div id="popup" class="popup">
-        <p>Analisando o mercado...</p>
-        <div class="progress-bar-container"><div id="bar1" class="progress-bar bar1"></div></div>
-        <div class="progress-bar-container"><div id="bar2" class="progress-bar bar2"></div></div>
-        <div class="progress-bar-container"><div id="bar3" class="progress-bar bar3"></div></div>
+    <div id="popupContainer" class="popup-container">
+        <div id="popup" class="popup">
+            <p>Analisando o mercado...</p>
+            <div class="progress-bar-container"><div id="bar1" class="progress-bar bar1"></div></div>
+            <div class="progress-bar-container"><div id="bar2" class="progress-bar bar2"></div></div>
+            <div class="progress-bar-container"><div id="bar3" class="progress-bar bar3"></div></div>
+        </div>
     </div>
 
       <div class="analise">
@@ -171,10 +173,10 @@
 
 
 document.getElementById("startSignal").addEventListener("click", function() {
-            let popup = document.getElementById("popup");
+            let popupContainer = document.getElementById("popupContainer");
             let videopopup = document.getElementById("videopopup")
-            popup.style.display = "block";
-            videopopup.style.display = "block";
+            popupContainer.style.display = "flex";
+            videopopup.style.display = "block"
             
             function fillBar(bar, duration, callback) {
                 let width = 0;
@@ -189,12 +191,12 @@ document.getElementById("startSignal").addEventListener("click", function() {
                 }, duration / 100);
             }
             
-            fillBar(document.getElementById("bar1"), 3500, () => {
-                fillBar(document.getElementById("bar2"), 3500, () => {
-                    fillBar(document.getElementById("bar3"), 3500, () => {
+            fillBar(document.getElementById("bar1"), 2000, () => {
+                fillBar(document.getElementById("bar2"), 2000, () => {
+                    fillBar(document.getElementById("bar3"), 2000, () => {
                         setTimeout(() => {
-                            popup.style.display = "none";
-                            videopopup.style.display = "none";
+                            popupContainer.style.display = "none";
+                            videopopup.style.display = "none"
                             document.getElementById("bar1").style.width = "0%";
                             document.getElementById("bar2").style.width = "0%";
                             document.getElementById("bar3").style.width = "0%";

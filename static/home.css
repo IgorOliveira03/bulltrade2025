@@ -11,7 +11,18 @@
   padding-bottom: 60px;
 }
 
-.background-video {
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 998;
+}
+.video-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -19,16 +30,12 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  pointer-events: none;
+  z-index: 99;
   display: none;
-  z-index: 998;
-  opacity: .9;
 }
 .popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   width: 300px;
   padding: 20px;
   background: rgba(0, 0, 0, 0.9);
@@ -36,7 +43,7 @@
   border-radius: 10px;
   box-shadow: 0 0 15px var(--primary-color);
   text-align: center;
-  z-index: 999;
+  z-index: 9999;
 }
 .progress-bar-container {
   width: 100%;
