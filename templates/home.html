@@ -262,14 +262,6 @@ function updateBar() {
       const circleIA = document.querySelector('.circleIA');
 
 
-
-      window.addEventListener("beforeunload", (event) => {
-        let popupContainer = document.getElementById("popupContainer");
-        popupContainer.style.display = "none";
-      });
-
-
-
       async function generateSignal() {
         await new Promise((resolve) => setTimeout(resolve, 5000));
 
