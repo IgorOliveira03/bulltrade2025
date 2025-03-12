@@ -176,18 +176,17 @@ document.getElementById("startSignal").addEventListener("click", function() {
             let popupContainer = document.getElementById("popupContainer");
             let txtpopup = document.getElementById("txtpopup")
             popupContainer.style.display = "flex";
-            txtpopup.textContent = "Desativando Sistema"
             function fillBar(bar, duration, callback) {
-                let width = 0;
-                let interval = setInterval(() => {
-                    if (width >= 100) {
-                        clearInterval(interval);
-                        if (callback) callback();
-                    } else {
-                        width++;
-                        bar.style.width = width + "%";
-                    }
-                }, duration / 100);
+              let width = 0;
+              let interval = setInterval(() => {
+                if (width >= 100) {
+                  clearInterval(interval);
+                  if (callback) callback();
+                } else {
+                  width++;
+                  bar.style.width = width + "%";
+                }
+              }, duration / 100);
             }
             txtpopup.textContent = "Analisando mercado"
             fillBar(document.getElementById("bar1"), 3500, () => {
@@ -202,7 +201,6 @@ document.getElementById("startSignal").addEventListener("click", function() {
                             document.getElementById("bar2").style.width = "0%";
                             document.getElementById("bar3").style.width = "0%";
                         }, 1000);
-                        txtpopup.textContent = "Desativando sistema"
                     });
                 });
             });
@@ -266,7 +264,8 @@ function updateBar() {
 
 
       window.addEventListener("beforeunload", (event) => {
-        clearInterval(generateSignal());
+        let popupContainer = document.getElementById("popupContainer");
+        popupContainer.style.display = "none";
       });
 
 
