@@ -8,11 +8,7 @@ app.secret_key = 'chave_secreta'  # Necessário para usar sessões
 
 # Lista de usuários e senhas válidas
 USUARIOS_VALIDOS = [
-    {"usuario": "bullex@gmail.com", "senha": "123", "nome": "Bullex"},
-    {"usuario": "gui", "senha": "123", "nome": "Gui"},
-    {"usuario": "andrey", "senha": "123", "nome": "Andrey"},
-    {"usuario": "joao@gmail.com", "senha": "456", "nome": "João"},
-    {"usuario": "igor", "senha": "123", "nome": "Igor Oliveira"}
+    {"usuario": "Trader", "senha": "12345", "nome": "Jonathantavares"},
 ]
 
 @app.route('/usuarios')
