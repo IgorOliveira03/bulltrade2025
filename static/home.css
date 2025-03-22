@@ -606,6 +606,9 @@ iframe {
     border-radius: 10px;
     margin-bottom: 50px;
   }
+  #corretora {
+    display: block;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -617,6 +620,9 @@ iframe {
     border: 1px solid #fff;
     border-radius: 10px;
     margin-bottom: 50px;
+  }
+  #corretora {
+    display: block;
   }
 
   .circleIA {
