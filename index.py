@@ -8,7 +8,7 @@ app.secret_key = 'chave_secreta'  # Necessário para usar sessões
 
 # Lista de usuários e senhas válidas
 USUARIOS_VALIDOS = [
-    {"usuario": "bullex@gmail.com", "senha": "123", "nome": "Bullex"},
+    {"usuario": "jonathantavares", "senha": "12345", "nome": "Trader"},
     {"usuario": "gui", "senha": "123", "nome": "Gui"},
     {"usuario": "andrey", "senha": "123", "nome": "Andrey"},
     {"usuario": "joao@gmail.com", "senha": "456", "nome": "João"},
