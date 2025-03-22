@@ -8,7 +8,7 @@ app.secret_key = 'chave_secreta'  # Necessário para usar sessões
 
 # Lista de usuários e senhas válidas
 USUARIOS_VALIDOS = [
-    {"usuario": "Trader", "senha": "12345", "nome": "Jonathantavares"},
+    {"usuario": "Trader", "senha": "12345", "nome": "Jonathantavares"}
 ]
 
 @app.route('/usuarios')
