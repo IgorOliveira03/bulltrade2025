@@ -21,7 +21,7 @@ def usuarios():
     return render_template('usuarios.html', usuarios=USUARIOS_VALIDOS)
 
 # Listas predefinidas para geração de sinais aleatórios
-assets = ["EUR/JPY", "USD/BRL", "EUR/USD", "BTC/USD", "EUR/GBP", "AUD/CAD", "USD/CHF", "GBP/USD", "PEN/USD", "NZD/USD", "GBP/JPY", "TRUMP Coin"]
+assets = ["EUR/USD", "USD/BRL", "USOUSD", "BTC/USD", "EUR/GBP", "AUD/CAD", "USD/CHF", "GBP/USD", "PEN/USD", "NZD/USD", "GBP/JPY", "ETH/USD ", "CARDANO ", "TRUMP Coin ", "MELANIA Coin", "AUS 200", "ONDO", "SOL/USD", "DOGECOIN" ]
 directions = ["COMPRA", "VENDA"]
 durations = ["M1", "M3", "M5"]  # Em minutos
 
