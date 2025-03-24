@@ -323,7 +323,7 @@
                   data['asset'] === 'TRUMP Coin' ||
                   data['asset'] === 'MELANIA Coin' ||
                   data['asset'] === 'ONDO' ||
-                  data['asset'] === 'DOGECOIN '
+                  data['asset'] === 'DOGECOIN'
                 ) {
                   timeframe.textContent = 'M1';
                 }
@@ -366,9 +366,9 @@
               await new Promise((resolve) => setTimeout(resolve, 60000));
 
               bolinha.textContent = 'I.A INICIADA';
-              btnAnalisar.textContent = 'AGUARDANDO SINAL';
-              btnAnalisar.style.opacity = '.5';
-              btnAnalisar.style.pointerEvents = 'none';
+              // btnAnalisar.textContent = 'AGUARDANDO SINAL';
+              // btnAnalisar.style.opacity = '.5';
+              // btnAnalisar.style.pointerEvents = 'none';
 
               await new Promise((resolve) => setTimeout(resolve, 5000));
               btnAnalisar.style.backgroundColor = 'var(--primary-color)';
@@ -429,18 +429,12 @@
 
               data.forEach((signal) => {
                 if (
-                  signal['asset'] === 'TRUMP Coin' ||
-                  signal['asset'] === 'Meta' ||
-                  signal['asset'] === 'Google' ||
-                  signal['asset'] === 'Tesla' ||
-                  signal['asset'] === 'Apple' ||
-                  signal['asset'] === 'Amazon' ||
-                  signal['asset'] === 'Nike, Inc.' ||
-                  signal['asset'] === "McDonald's" ||
-                  signal['asset'] === 'Coca-Cola' ||
-                  signal['asset'] === 'MELANIA Coin'
+                  data['asset'] === 'TRUMP Coin' ||
+                  data['asset'] === 'MELANIA Coin' ||
+                  data['asset'] === 'ONDO' ||
+                  data['asset'] === 'DOGECOIN'
                 ) {
-                  signal['duration'] = 'M1';
+                  timeframe.textContent = 'M1';
                 }
 
                 const li = document.createElement('li');
