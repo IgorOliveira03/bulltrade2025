@@ -637,6 +637,10 @@ iframe {
     padding-bottom: 60px;
   }
 
+  .btnAnalisar {
+    display: none;
+  }
+
   iframe {
     display: block;
     width: 100%;
