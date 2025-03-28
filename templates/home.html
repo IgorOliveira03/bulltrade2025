@@ -63,7 +63,7 @@
 
         <div class="painel">
           <div class="ativo">
-            ATIVO (OTC):
+            ATIVO:
             <p id="ativo">-</p>
           </div>
 
@@ -320,14 +320,14 @@
                   containerPrincipal.classList.add("boxshadowVenda")
                 }
 
-                if (
-                  data['asset'] === 'TRUMP Coin' ||
-                  data['asset'] === 'MELANIA Coin' ||
-                  data['asset'] === 'ONDO' ||
-                  data['asset'] === 'DOGECOIN'
-                ) {
-                  timeframe.textContent = 'M1';
-                }
+                // if (
+                //   data['asset'] === 'TRUMP Coin' ||
+                //   data['asset'] === 'MELANIA Coin' ||
+                //   data['asset'] === 'ONDO' ||
+                //   data['asset'] === 'DOGECOIN'
+                // ) {
+                //   timeframe.textContent = 'M1';
+                // }
 
                 function updateTime() {
                   const now = new Date();
@@ -375,7 +375,7 @@
               btnAnalisar.style.backgroundColor = 'var(--primary-color)';
 
               // Aguarda 3 minutos antes de rodar novamente
-              setTimeout(generateSignal, 800000);
+              setTimeout(generateSignal, 40000);
             }
 
             // Variável de controle para verificar o estado da I.A

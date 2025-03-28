@@ -19,7 +19,7 @@ def usuarios():
 # Listas predefinidas para geração de sinais aleatórios
 assets = ["EUR/USD", "USD/BRL", "USOUSD", "BTC/USD", "EUR/GBP", "AUD/CAD", "USD/CHF", "GBP/USD", "PEN/USD", "NZD/USD", "GBP/JPY", "ETH/USD ", "CARDANO ", "TRUMP Coin ", "MELANIA Coin", "AUS 200", "ONDO", "SOL/USD", "DOGECOIN" ]
 directions = ["COMPRA", "VENDA"]
-durations = ["M1", "M3", "M5"]  # Em minutos
+durations = ["M1"]  # Em minutos
 
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
