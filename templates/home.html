@@ -349,7 +349,7 @@
                   const formattedHours = String(hours).padStart(2, '0');
                   const formattedMinutes = String(minutes).padStart(2, '0');
                   const formattedSegundos = String(segundos).padStart(2, '0');
-                  horario.textContent = `${formattedHours}:${formattedMinutes}:${formattedSegundos}`;
+                  horario.textContent = `${formattedHours}:${formattedMinutes}`;
                 }
 
                 updateTime();
@@ -455,7 +455,7 @@
               let seconds = now.getSeconds().toString().padStart(2, '0');
               document.getElementById(
                 'clock'
-              ).innerText = `${hours}:${minutes}:${seconds}`;
+              ).innerText = `${hours}:${minutes}`;
             }
             setInterval(updateClock, 1000);
             updateClock(); // Atualiza imediatamente sem esperar o intervalo
