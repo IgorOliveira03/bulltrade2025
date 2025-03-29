@@ -342,8 +342,8 @@
                   if (hours >= 24) {
                     hours = 0;
                   }
-                  if (segundos >= 59) {
-                    segundos = 0;
+                  if (segundos >= 30) {
+                    minutes = minutes + 1;
                   }
 
                   const formattedHours = String(hours).padStart(2, '0');
