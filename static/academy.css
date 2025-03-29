@@ -51,7 +51,7 @@
 
 .video-section iframe {
     width: 100%;
-    height: 200px;
+    height: 250px;
     display: block;
     border: none;
 }
@@ -120,7 +120,7 @@
       }
     .video-section iframe {
         width: 100%;
-        height: 400px;
+        height: 550px;
         display: block;
         border: none;
     }
